@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Twidder</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Twidder - A Twitter Clone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div>
+        <p><%= notice %></p>
+      </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div>
+          <p><%= alert %></p>
+        </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
