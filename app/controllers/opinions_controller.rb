@@ -1,74 +1,29 @@
 class OpinionsController < ApplicationController
-  before_action :set_opinion, only: [:show, :edit, :update, :destroy]
+  before_action :authorize, only: [:index]
 
-  # GET /opinions
-  # GET /opinions.json
   def index
-    @opinions = Opinion.all
-  end
-
-  # GET /opinions/1
-  # GET /opinions/1.json
-  def show
-  end
-
-  # GET /opinions/new
-  def new
     @opinion = Opinion.new
+    @opinions = Opinion.order('created_at DESC').includes(:Author).limit(5)
+    @users = User.all_users(current_user.id).order('created_at DESC')
   end
 
-  # GET /opinions/1/edit
-  def edit
-  end
-
-  # POST /opinions
-  # POST /opinions.json
   def create
     @opinion = Opinion.new(opinion_params)
+    @opinion.authorId = current_user.id
 
-    respond_to do |format|
-      if @opinion.save
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully created.' }
-        format.json { render :show, status: :created, location: @opinion }
-      else
-        format.html { render :new }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /opinions/1
-  # PATCH/PUT /opinions/1.json
-  def update
-    respond_to do |format|
-      if @opinion.update(opinion_params)
-        format.html { redirect_to @opinion, notice: 'Opinion was successfully updated.' }
-        format.json { render :show, status: :ok, location: @opinion }
-      else
-        format.html { render :edit }
-        format.json { render json: @opinion.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /opinions/1
-  # DELETE /opinions/1.json
-  def destroy
-    @opinion.destroy
-    respond_to do |format|
-      format.html { redirect_to opinions_url, notice: 'Opinion was successfully destroyed.' }
-      format.json { head :no_content }
+    if @opinion.save
+      flash[:notice] = 'Opinion was successfully created'
+      redirect_to root_path
+    else
+      flash[:alert] = 'Something went wrong'
+      render 'index'
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_opinion
-      @opinion = Opinion.find(params[:id])
-    end
 
     # Only allow a list of trusted parameters through.
     def opinion_params
-      params.require(:opinion).permit(:authorId, :text)
+      params.require(:opinion).permit(:text)
     end
 end
