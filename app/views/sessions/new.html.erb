@@ -1,0 +1,11 @@
+<div class="login-page">
+  <div class="logo">
+    <i class="fab fa-twitter fa-4x"></i>
+  </div>
+</div>
+
+<%= simple_form_for (:session), url: login_path, html: {class: 'login-form'} do |f| %>
+  <%= f.input :username, placeholder: 'Your user name' %>
+  <%= f.submit "Log in"%>    
+  <%= link_to "Sign up", signup_path %>
+<% end %>
