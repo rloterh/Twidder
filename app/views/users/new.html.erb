@@ -1,5 +1,27 @@
-<h1>New User</h1>
+<div>
+  <i class="fab fa-twitter fa-4x logo"></i>
+  <h3>Create your account</h3>
+</div>
 
-<%= render 'form', user: @user %>
+<% if @user.errors.any? %>
+<h3>
+  <%= pluralize(@user.errors.count, "error") %> prohibited this user from being
+  saved:
+</h3>
+<ul>
+  <% @user.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+  <% end %>
+</ul>
+<% end %>
 
-<%= link_to 'Back', users_path %>
+<%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
+  <%= f.input :fullname, label: 'Full name', placeholder: 'Full name' %>
+  <%= f.input :username, label: 'UserName', placeholder: 'Choose a userName' %>
+
+  <%= f.file_field :photo, label: 'Profile image' %>
+  <%= f.file_field :CoverImg, label: 'Cover Photo' %>
+
+  <%= f.button :submit, 'Sign Up'%>
+  <%= link_to "Log in", login_path %> 
+<% end %>

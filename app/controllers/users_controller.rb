@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    session[:user_id] = nil if logged_in?
     @user = User.new
   end
 
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
 
   private
   
-    # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:fullname, :username)
     end
