@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :followings
   resources :users,  except: [:new]
   resource :sessions, only: [:create, :destroy]
 

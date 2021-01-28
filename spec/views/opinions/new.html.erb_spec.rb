@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "opinions/new", type: :view do
   before(:each) do
     assign(:opinion, Opinion.new(
-      authorId: 1,
+      author_id: 1,
       text: "MyText"
     ))
   end
@@ -13,7 +13,7 @@ RSpec.describe "opinions/new", type: :view do
 
     assert_select "form[action=?][method=?]", opinions_path, "post" do
 
-      assert_select "input[name=?]", "opinion[authorId]"
+      assert_select "input[name=?]", "opinion[author_id]"
 
       assert_select "textarea[name=?]", "opinion[text]"
     end

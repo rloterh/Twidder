@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "opinions/show", type: :view do
   before(:each) do
     @opinion = assign(:opinion, Opinion.create!(
-      authorId: 2,
+      author_id: 2,
       text: "MyText"
     ))
   end

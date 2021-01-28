@@ -9,7 +9,7 @@ class OpinionsController < ApplicationController
 
   def create
     @opinion = Opinion.new(opinion_params)
-    @opinion.authorId = current_user.id
+    @opinion.author_id = current_user.id
 
     if @opinion.save
       flash[:notice] = 'Opinion was successfully created'

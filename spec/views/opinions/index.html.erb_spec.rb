@@ -4,11 +4,11 @@ RSpec.describe "opinions/index", type: :view do
   before(:each) do
     assign(:opinions, [
       Opinion.create!(
-        authorId: 2,
+        author_id: 2,
         text: "MyText"
       ),
       Opinion.create!(
-        authorId: 2,
+        author_id: 2,
         text: "MyText"
       )
     ])

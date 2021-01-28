@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :opinions, foreign_key: 'authorId', class_name: 'Opinion'
+  has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion'
 
   before_save { self.username = self.username.downcase }
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 45 }
