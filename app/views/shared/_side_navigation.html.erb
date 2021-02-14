@@ -1,0 +1,11 @@
+<h6><%= current_user.fullname %></h6>
+
+<p><%= current_user.followed.size %></p>
+<p>Following</p>
+        
+<p><%= link_to 'home', root_path, class: "links-path active" %></p>
+
+<p><%= link_to 'profile', user_path(current_user.id) %></p>
+
+<p><%= link_to 'logout', logout_path, method: :get %></p>
+
