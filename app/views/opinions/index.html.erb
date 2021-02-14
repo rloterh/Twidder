@@ -1,16 +1,35 @@
+<%= render 'shared/side_navigation' %>
+<%= render 'shared/top_navigation' %>
 
-         <% if @opinion.errors.full_messages.any? %>
-           <% @opinion.errors.full_messages.each do |message| %>
-               <%= message %>
-           <% end %>
-         <% end %>
+<%= render partial: 'shared/form' , locals: { opinion: @opinion } %>
 
-         <%= simple_form_for @opinion, url: new_opinion_path  do |f| %>
-           <%= f.input :text, label: false, placeholder: 'Share your opinion'%>
-           <%= f.button :submit, 'Tweet'%>
-         <% end %>
+    <% @opinions.each do |opinion| %>
+     <h4>
+        <%= opinion.Author.fullname.capitalize %>
+    </h4>
+    <span>
+        <%= opinion.text %>
+     </span>
+     <% end %>
 
-         <% @opinions.each do |opinion| %>
-             <h4><%= opinion.Author.fullname.capitalize %></h4>
-             <span><%= opinion.text %></span>
-         <% end %>
+     <aside class="who-follow">
+        <div class="follow-header">
+          <p>who to follow</p>
+        </div>
+        <div class="find-friends">
+          <% @users.each do |user| %>
+            <div class="who-follow-profile">
+              <div class="picture">
+                <%= link_to user_path(user), class: 'user' do %>
+                  <% unless user[:pic].nil? %>
+                    <%= image_tag user.pic.thumb.url, class: 'photo' %>
+                  <% else %>
+                    <%= gravatar_for user, size: 50 %>
+                  <% end %>
+                  <h6><%= user.fullname %></h6>
+                <% end %>
+              </div>  
+            </div>
+          <% end %>
+        </div>
+      </aside>

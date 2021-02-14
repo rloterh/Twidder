@@ -1,8 +1,0 @@
-<%= current_user.fullname.upcase %>
-   
-<%= link_to 'Home', root_path, class: "links-path active" %>
-
-<%= link_to 'Profile', user_path(current_user.id), class: "links-path" %>
-   
-<%= link_to 'Logout', logout_path, method: :get, class: "links-path" %>
-
