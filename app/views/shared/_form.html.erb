@@ -1,0 +1,5 @@
+<%= simple_form_for @opinion, url: new_opinion_path  do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :text, label: false, placeholder: 'Share your opinion'%>
+  <%= f.button :submit, 'Tweet'%>
+<% end %>
