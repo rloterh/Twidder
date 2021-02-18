@@ -1,105 +1,14 @@
 <div class="wrapper">
 
-  <nav id="sidebar" class="sidebar">
-    <div class="sidebar-content js-simplebar">
-
-      <div class="d-flex align-items-center sidebar-userinfo">
-        <picture class="m-4 rounded" style="width:75px; height:75px; background:#fff"><img src=""></picture>
-        <h5 class="text-white">user name</h5>
-      </div>
-
-      <div class="d-flex align-items-center sb-followinfo">
-        <div class="flex-fill d-flex flex-column align-items-center justify-content-center following-sbdiv">
-          <h6 class="pt-3">333</h6>
-          <h6 class="pb-3">following</h6>
-        </div>
-        <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-          <h6 class="pt-3">778</h6>
-          <h6 class="pb-3">followers</h6>
-        </div>
-      </div>
-
-      <ul class="sidebar-nav text-capitalize">
-        <li class="sidebar-item active">
-          <a class="sidebar-link" href="index.html">
-            <i class="align-middle" data-feather="home"></i> <span class="align-middle">home</span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="pages-profile.html">
-            <i class="align-middle" data-feather="at-sign"></i> <span class="align-middle">connect</span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="pages-settings.html">
-            <i class="align-middle" data-feather="hash"></i> <span class="align-middle">discover</span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="pages-invoice.html">
-            <i class="align-middle" data-feather="user"></i> <span class="align-middle">profile</span>
-          </a>
-        </li>
-
-        <li class="sidebar-item">
-          <a class="sidebar-link" href="pages-blank.html">
-            <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">statistics</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <!-- SIDEBAR-LEFT -->
+  <%= render partial: 'shared/side_navigation' %>
+  <!-- S-L -->
 
   <!-- MAIN -->
 
   <div class="main">
-
-    <nav class="navbar navbar-expand navbar-primary navbar-bg main-nav">
-      <!-- NAVIGATION MENU -->
-      <div class="navbar-collapse collapse mainnav-icons">
-        <svg viewBox="0 0 24 24" width="32" fill="#fff">
-          <g>
-            <path
-              d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z">
-            </path>
-          </g>
-        </svg>
-        <ul class="navbar-nav navbar-align">
-          <li class="nav-item dropdown">
-            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
-              <div class="position-relative">
-                <i class="align-middle" data-feather="message-square"></i>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-toggle="dropdown">
-              <div class="position-relative">
-                <i class="align-middle" data-feather="bell"></i>
-                <span class="indicator">4</span>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
-              <div class="position-relative">
-                <i class="align-middle" data-feather="search"></i>
-              </div>
-            </a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-toggle="dropdown">
-              <div class="position-relative">
-                <i class="align-middle" data-feather="settings"></i>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+ <!-- NAVIGATION MENU -->
+  <%= render partial: 'shared/top_navigation' %>
 
     <!-- MAIN CONTENT -->
     <div class=" mt-5 pt-3">
@@ -108,19 +17,19 @@
         <div class="d-flex flex-column col-sm-6 col-lg-9">
           <!-- MAIN CONTENT -->
           <div class="twidder-menu d-flex text-capitalize">
-            <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">opinions</div>
+            <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">twids</div>
             <div class=" mr-5 h4 py-3">photos</div>
-            <div class=" mr-5 h4 py-3 ">videos</div>
+            <div class=" mr-5 h4 py-3">videos</div>
           </div>
 
           <div class="opinion-container d-flex flex-column">
             <div class="d-flex flex-column align-items-center">
               <div class="opinion-section">
-                <p class="createopinion-title mb-2 text-capitalize">tweet something</p>
+                <p class="createopinion-title mb-2 text-capitalize">twid something</p>
                 <div class="create-opinion">
-                  <div class="opinion-form">
-                    <p class="mb-0">create new opinion</p>
-                  </div>
+                  <!-- <div class="opinion-form"> -->
+                    <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
+                  <!-- </div> -->
                 </div>
               </div>
             </div>
@@ -130,22 +39,25 @@
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
                 <div class="tofollow-head text-capitalize">
-                  <div class="mr-5 mb-0 h4 py-3">new opinions</div>
+                  <div class="mr-5 mb-0 py-3 newopinion-title">4 new twids</div>
                 </div>
-  
-                <div class="d-flex align-items-center">
-                  <picture class="newopinion-img m-4 mr-3 ml-0 rounded-circle" >
-                    <img src="">
-                  </picture>
-                  <div class="flex-fill d-flex flex-column ">
+                <% @opinions.each do |opinion| %>
+                <div class="d-flex align-items-start py-4">
+                  <div class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
+                    <picture class=""></picture>
+                  </div>
+                  <div class="flex-fill d-flex flex-column">
                     <div class="d-flex justify-content-between">
-                      <h6 class="pt-3">John Schneider</h6>
-                      <h6>3hrs</h6>
+                      <h6 class="newopinion-author"><%= opinion.Author.fullname %></h6>
+                      <h6 class="pl-3 newopinion-time"><%=opinion.created_at.strftime("%H") %>h</h6>
                     </div>
                     
-                    <h6 class="pb-3">Followed by....</h6>
+                    <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
+                    <div class="d-flex justify-content-between align-items-end">Like</div>
+                    <div class="d-flex justify-content-between align-items-end">Comment</div>
                   </div>
                 </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -154,8 +66,6 @@
 
 
         <div class="right-aside col-sm-6 col-lg-3 right-sec">
-
-
 
           <div class="tofollow-section">
             <div class="tofollow-head d-flex justify-content-between text-capitalize">
@@ -168,8 +78,25 @@
                 </a>
               </div>
             </div>
-
+            <% @users.each do |user| %>
+            <%= link_to user_path(user), class: 'user' do %>
             <div class="d-flex align-items-center">
+              <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle">
+                    <% unless user[:photo].nil? %>
+                    <%= image_tag user.pic.thumb.url, class: 'photo' %>
+                  <% else %>
+                    <%= gravatar_for user, size: 50 %>
+                  <% end %>
+              </picture>
+              <div class="flex-fill d-flex flex-column ">
+                <h6 class="pt-3"><%= user.fullname %></h6>
+                <h6 class="pb-3">Followed by....</h6>
+              </div>  
+            </div>
+            <% end %>
+            <% end %>
+
+            <!-- <div class="d-flex align-items-center">
               <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle" >
                 <img src="">
               </picture>
@@ -177,7 +104,7 @@
                 <h6 class="pt-3">John Schneider</h6>
                 <h6 class="pb-3">Followed by....</h6>
               </div>
-            </div>
+            </div> -->
 
           </div>
 
@@ -204,7 +131,6 @@
                 </ul>
               </div>
             </div>
-
           </div>
 
         </div>
@@ -216,19 +142,21 @@
         <div class="row text-muted">
           <div class="col-6 text-left">
             <p class="mb-0">
-              <a href="index.html" class="text-muted"><strong>&copy;Twidder</strong></a>
+              <%= link_to root_path, class:'footer-logo' do %>
+              <strong>&copy;Twidder <%= Time.now.year %></strong>
+              <% end %>
             </p>
           </div>
           <div class="col-6 text-right">
-            <ul class="list-inline">
+            <ul class="list-inline footer-map">
               <li class="list-inline-item">
-                <a class="text-muted" href="#">Support</a>
+                <a class="" href="#">Support</a>
               </li>
               <li class="list-inline-item">
-                <a class="text-muted" href="#">Privacy</a>
+                <a class="" href="#">Privacy</a>
               </li>
               <li class="list-inline-item">
-                <a class="text-muted" href="#">Terms</a>
+                <a class="" href="#">Terms</a>
               </li>
             </ul>
           </div>
@@ -237,40 +165,3 @@
     </footer>
   </div>
 </div>
-
-
-<%= render 'shared/side_navigation' %>
-<%= render 'shared/top_navigation' %>
-
-<%= render partial: 'shared/form' , locals: { opinion: @opinion } %>
-
-    <% @opinions.each do |opinion| %>
-     <h4>
-        <%= opinion.Author.fullname.capitalize %>
-    </h4>
-    <span>
-        <%= opinion.text %>
-     </span>
-     <% end %>
-
-     <aside class="who-follow">
-        <div class="follow-header">
-          <p>who to follow</p>
-        </div>
-        <div class="find-friends">
-          <% @users.each do |user| %>
-            <div class="who-follow-profile">
-              <div class="picture">
-                <%= link_to user_path(user), class: 'user' do %>
-                  <% unless user[:photo].nil? %>
-                    <%= image_tag user.pic.thumb.url, class: 'photo' %>
-                  <% else %>
-                    <%= gravatar_for user, size: 50 %>
-                  <% end %>
-                  <h6><%= user.fullname %></h6>
-                <% end %>
-              </div>  
-            </div>
-          <% end %>
-        </div>
-      </aside>
