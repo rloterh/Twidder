@@ -1,11 +1,64 @@
-<h6><%= current_user.fullname %></h6>
+<nav id="sidebar" class="sidebar">
+  <div class="sidebar-content js-simplebar">
 
-<p><%= current_user.followed.size %></p>
-<p>Following</p>
-        
-<p><%= link_to 'home', root_path, class: "links-path active" %></p>
+    <div class="d-flex align-items-center sidebar-userinfo">
+      <picture class="m-4 rounded" style="width:75px; height:75px; background:#fff"><img src=""></picture>
+      <h5 class="text-white"><%= current_user.fullname %></h5>
+    </div>
 
-<p><%= link_to 'profile', user_path(current_user.id) %></p>
+    <div class="d-flex align-items-center sb-followinfo">
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center following-sbdiv">
+        <h6 class="pt-3"><%= current_user.followed.size %></h6>
+        <h6 class="pb-3">following</h6>
+      </div>
+      <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
+        <h6 class="pt-3"><%= current_user.followers.size %></h6>
+        <h6 class="pb-3">followers</h6>
+      </div>
+    </div>
 
-<p><%= link_to 'logout', logout_path, method: :get %></p>
+    <ul class="sidebar-nav text-capitalize">
+      <li class="sidebar-item active">
+        <%= link_to root_path, class:'d-inline' do %>
+        <div class="sidebar-link">
+          <i class="align-middle" data-feather="home"></i> 
+          <span class="align-middle d-inline">home</span>
+        </div>
+        <% end %>
+      </li>
 
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="at-sign"></i> <span class="align-middle">connect</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="hash"></i> <span class="align-middle">discover</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <%= link_to user_path(current_user.id) do %>
+        <div class="sidebar-link">
+          <i class="align-middle" data-feather="user"></i> 
+          <span class="align-middle">profile</span>
+        </div>
+        <% end %>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">statistics</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item">
+        <a class="sidebar-link">
+          <i class="align-middle" data-feather="more-horizontal"></i> <span class="align-middle">more</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
