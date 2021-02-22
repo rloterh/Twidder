@@ -1,0 +1,9 @@
+<% collection.each do |comment| %>
+  <div>
+    <div>
+      <p>By <span class=""><%= comment.commentor.username %></span></p>
+      <p><%= comment.content %></p>
+      <p><%= comment.created_at.strftime("%Y/%m/%d") %></p>
+    </div>
+  </div>
+<% end %>
