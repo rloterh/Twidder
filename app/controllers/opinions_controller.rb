@@ -7,7 +7,7 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.order('created_at DESC').includes(:Author).limit(5)
+    @opinions = Opinion.order('created_at DESC').includes(:author).limit(5)
     @users = User.all_users(current_user.id).order('created_at DESC')
   end
 
@@ -16,8 +16,8 @@ class OpinionsController < ApplicationController
     @opinion.author_id = current_user.id
     respond_to do |format|
       if @opinion.save
-        format.html { redirect_to root_path }
-        format.json { render root_path, status: :created, location: @opinion }
+        format.html { redirect_to opinions_path }
+        format.json { render opinions_path, status: :created, location: @opinion }
       else
         flash[:alert] = @opinion.errors.full_messages.join('. ').to_s
         format.html { redirect_to root_path }
