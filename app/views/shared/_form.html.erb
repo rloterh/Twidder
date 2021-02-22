@@ -1,4 +1,4 @@
-<%= simple_form_for @opinion, url: new_opinion_path  do |f| %>
+<%= simple_form_for @opinion, :remote => true do |f| %>
   <%= f.error_notification %>
   <%= f.input :text, as: :string, label: false, wrapper: false, placeholder: 'tell what I\'m doing...', input_html: { class: 'opinion-form' }%>
 <% end %>

@@ -1,0 +1,3 @@
+<%= simple_form_for(comment, url: opinion_comments_path(opinion), :remote=> true) do |f| %>
+  <%= f.input :content, as: :string, label: false, wrapper: false, placeholder: 'reply to this twid...', input_html: { class: 'opinion-form' } %>
+<% end %>
