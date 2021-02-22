@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :comments
   resources :followings
   resources :users,  except: [:new]
   resource :sessions, only: [:create, :destroy]
+  resources :opinions, only: [:index, :create] do
+    resources :comments, only: [:create]
+  end
 
   root to: 'opinions#index'
   get '/signup', to: 'users#new'
