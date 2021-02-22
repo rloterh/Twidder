@@ -48,13 +48,26 @@
                   </div>
                   <div class="flex-fill d-flex flex-column">
                     <div class="d-flex justify-content-between">
-                      <h6 class="newopinion-author"><%= opinion.Author.fullname %></h6>
+                      <h6 class="newopinion-author"><%= opinion.author.fullname %></h6>
                       <h6 class="pl-3 newopinion-time"><%=opinion.created_at.strftime("%H") %>h</h6>
                     </div>
                     
                     <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
                     <div class="d-flex justify-content-between align-items-end">Like</div>
-                    <div class="d-flex justify-content-between align-items-end">Comment</div>
+                    <div class="d-flex justify-content-between align-items-end">
+                      <div class='user-comments'>
+                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments } %>
+                        <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion } %>
+                    </div>
+
+                    </div>
+
+                    
+
+
+
+
+
                   </div>
                 </div>
                 <% end %>
@@ -95,16 +108,6 @@
             </div>
             <% end %>
             <% end %>
-
-            <!-- <div class="d-flex align-items-center">
-              <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle" >
-                <img src="">
-              </picture>
-              <div class="flex-fill d-flex flex-column ">
-                <h6 class="pt-3">John Schneider</h6>
-                <h6 class="pb-3">Followed by....</h6>
-              </div>
-            </div> -->
 
           </div>
 
