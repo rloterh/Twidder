@@ -8,6 +8,6 @@ class CreateComments < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     add_index :comments, :opinion_id
-    add_foreign_key :comments, :users, column: :commentor_id
+    # add_foreign_key :comments, :users, column: :commentor_id
   end
 end
