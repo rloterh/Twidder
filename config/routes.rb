@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:create, :destroy]
   resources :opinions, only: [:index, :create] do
     resources :comments, only: [:create]
+    resources :likes, only: [:create, :destroy]
   end
 
   root to: 'opinions#index'
