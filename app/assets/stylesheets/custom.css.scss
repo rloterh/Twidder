@@ -5,6 +5,7 @@
   display:inline;
   overflow: hidden;
   position:fixed;
+  top: 0;
   /* background-color:#00aae5; */
   background-image: linear-gradient(to top, #52a6e6, #49a7e6, #40a8e6, #34a8e6, #26a9e6, #26a9e7, #26aae7, #26aae8, #35aaea, #40abeb, #4babed, #54abee);
 
@@ -34,12 +35,19 @@
   color:#e9ecef;
 }
 
+.cover-img {
+  height: 240px;
+  background-color: #122238;
+}
+
 .twidder-menu,
 .tofollow-head,
 .trending-head,
-.opinions-container {
+.tofollow-section,
+.profile-section,
+.stats-section {
   border-bottom: 1px solid #dfdfdf;
-}
+} 
 
 .twidder-menu div{
   font-weight: 500;
@@ -99,12 +107,15 @@
 }
 
 .right-aside {
-  border: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
 }
 
-.tofollow-section {
-  border-bottom: 1px solid #dfdfdf;
+.profile-section {
+  // height: 160px;
+
 }
+
+
 
 .tofollow-img,
 .newopinion-img {
@@ -112,7 +123,13 @@
   height:64px;
 }
 
-.tofollow-img {
+.profile-img {
+  width:96px;
+  height:96px;
+}
+
+.tofollow-img,
+.profile-img {
    background:#fff;
 }
 .newopinion-time,
@@ -178,10 +195,86 @@
   text-transform:capitalize;
 }
 
+.footer {
+  border-top: 1px solid #dfdfdf;
+
+}
 .footer-logo,
 .footer-map >li > a {
   color: #787878;
 }
+
+.follow-licon,
+.follow-picon {
+  color: #ccc;
+}
+
+.follow-picon {
+  left: auto;
+}
+
+.follow-licon {
+  right: auto;
+}
+
+.feather-24{
+  width: 24px;
+  height: 24px;
+}
+
+.feather-32{
+  width: 32px;
+  height: 32px;
+}
+
+.profile-stats {
+  border-left: 1px solid #dfdfdf;
+  border-right: 1px solid #dfdfdf;
+}
+
+.stats-box {
+  flex: 1 !important;
+}
+
+.profile-fullname {
+  color: #232323;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.profile-username {
+  color: #898989;
+  font-weight: 400;
+}
+
+.stats-figure {
+  font-weight: 700;
+  font-size: 18px;
+  color: #252525;
+}
+
+.stats-category {
+  color: #777;
+}
+
+.tofollow-fullname {
+  color: #3b3b3b;
+  font-weight: 700;
+}
+
+.tofollow-username {
+  color: #aaa;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.7px;
+}
+
+.menu-inactive,
+.sbr-title {
+  color: #777;
+}
+
+
 
 @media (min-width:992px) {
   .main {
