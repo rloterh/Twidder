@@ -1,16 +1,189 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper">
 
-<p>
-  <strong>Fullname:</strong>
-  <%= @user.fullname %>
-</p>
+  <!-- SIDEBAR-LEFT -->
+  <%= render partial: 'shared/side_navigation' %>
+  <!-- S-L -->
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+  <!-- MAIN -->
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <div class="main">
+    <!-- NAVIGATION MENU -->
+    <%= render partial: 'shared/top_navigation' %>
 
-<!-- Add user's full details, with options to follow-->
+    <!-- MAIN CONTENT -->
+    <div class=" mt-5 pt-3">
+      <div class="d-flex">
+
+        <div class="d-flex flex-column col-sm-6 col-lg-9">
+          <!-- MAIN CONTENT -->
+          <div class="cover-img">
+          </div>
+
+          <div class="twidder-menu d-flex text-capitalize">
+            <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">twids</div>
+            <div class="menu-inactive mr-5 h4 py-3">photos</div>
+            <div class="menu-inactive mr-5 h4 py-3">followers</div>
+            <div class="menu-inactive mr-5 h4 py-3">following</div>
+            <div class="menu-inactive mr-5 h4 py-3">favorites</div>
+            <div class="menu-inactive mr-5 h4 py-3">lists</div>
+          </div>
+
+          <div class="opinion-container d-flex flex-column">
+            <div class="d-flex flex-column align-items-center">
+              <div class="opinion-section">
+                <p class="createopinion-title mb-2 text-capitalize">twid to user fullname</p>
+                <div class="create-opinion">
+                  <!-- <div class="opinion-form"> -->
+                  <%= render partial: 'shared/profile_form', locals: { opinion: @opinion } %>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div class="opinions-container d-flex flex-column">
+            <div class="d-flex flex-column align-items-center">
+              <div class="newopinion-section">
+                <div class="tofollow-head text-capitalize">
+                  <div class="mr-5 mb-0 py-3 newopinion-title">4 new twids by user</div>
+                </div>
+                <% @opinions.each do |opinion| %>
+                <div class="d-flex align-items-start py-4">
+                  <div class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
+                    <picture class=""></picture>
+                  </div>
+                  <div class="flex-fill d-flex flex-column">
+                    <div class="d-flex justify-content-between">
+                      <h6 class="newopinion-author"><%= opinion.author.fullname %></h6>
+                      <h6 class="pl-3 newopinion-time"><%=opinion.created_at.strftime("%H") %>h</h6>
+                    </div>
+
+                    <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
+                    <div class="d-flex justify-content-between align-items-end">
+                      <!-- Like -->
+                      <%= like_or_dislike_btn(opinion) %>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end">
+                      <div class='user-comments'>
+                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments } %>
+                        <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion } %>
+                      </div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+
+        <!-- RIGHT ASIDE -->
+        <div class="right-aside col-sm-6 col-lg-3">
+
+          <div class="profile-section">
+
+            <div class="d-flex align-items-center sbr-profile">
+              <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
+                <div class="py-1">
+                  <i class="follow-picon feather-32" data-feather="plus-circle"></i>
+                </div>
+              </div>
+              <div class="flex-fill d-flex flex-column align-items-center justify-content-center my-3">
+                <picture class="profile-img rounded-circle">
+                </picture>
+              </div>
+              <div class="flex-fill d-flex flex-column align-items-start justify-content-center">
+                <div class="py-1">
+                  <i class="follow-licon feather-32" data-feather="list"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-name d-flex flex-column justify-content-between">
+              <h6 class="profile-fullname text-center">Profile username</h6>
+              <h6 class="profile-username text-center">@username</h6>
+            </div>
+          </div>
+
+          <div class="stats-section text-capitalize">
+
+            <div class="d-flex align-items-center ">
+              <div class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center">
+                <h6 class="stats-figure pt-1"><%= current_user.followed.size %></h6>
+                <h6 class="stats-category pb-1">twids</h6>
+              </div>
+              <div
+                class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center profile-stats">
+                <h6 class="stats-figure pt-1"><%= current_user.followed.size %></h6>
+                <h6 class="stats-category pb-1">following</h6>
+              </div>
+              <div class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center ">
+                <h6 class="stats-figure pt-1"><%= current_user.followers.size %></h6>
+                <h6 class="stats-category pb-1">followers</h6>
+              </div>
+            </div>
+          </div>
+
+          <div class="tofollow-section">
+
+            <div class="tofollow-head d-flex justify-content-between text-capitalize">
+              <div class="sbr-title mr-5 mb-0 h4 py-3">followed by</div>
+              <div class=" h4 py-3">
+                <a class="" href="#" id="" data-toggle="">
+                  <div class="">
+                    <i class="title-icon" data-feather="refresh-cw"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+
+              <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle">
+              </picture>
+              <div class="flex-fill d-flex flex-column ">
+                <h6 class="tofollow-fullname pt-3">User John</h6>
+                <h6 class="tofollow-username pb-3">@some user</h6>
+              </div>
+              <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
+                <div class="py-1">
+                  <i class="follow-picon feather-32" data-feather="plus-circle"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trending-section">
+            <div class="trending-head d-flex justify-content-between text-capitalize">
+              <div class="sbr-title mr-5 mb-0 h4 py-3">trending</div>
+              <div class=" h4 py-3">
+                <a class="" href="#" id="" data-toggle="">
+                  <div class="">
+                    <i class="title-icon" data-feather="trending-up"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="">
+                <ul class="trending-list">
+                  <li class="mt-3"><a>#elections</a></li>
+                  <li class=""><a>#nouvelle mode</a></li>
+                  <li class=""><a>#des sports</a></li>
+                  <li class=""><a>#travel tour</a></li>
+                  <li class=""><a>#gagdetzone</a></li>
+                </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <%= render partial: 'shared/footer' %>
+  </div>
+</div>

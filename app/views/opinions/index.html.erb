@@ -18,8 +18,8 @@
           <!-- MAIN CONTENT -->
           <div class="twidder-menu d-flex text-capitalize">
             <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">twids</div>
-            <div class=" mr-5 h4 py-3">photos</div>
-            <div class=" mr-5 h4 py-3">videos</div>
+            <div class="menu-inactive mr-5 h4 py-3">photos</div>
+            <div class="menu-inactive mr-5 h4 py-3">videos</div>
           </div>
 
           <div class="opinion-container d-flex flex-column">
@@ -85,11 +85,11 @@
 
           <div class="tofollow-section">
             <div class="tofollow-head d-flex justify-content-between text-capitalize">
-              <div class="mr-5 mb-0 h4 py-3">who to follow</div>
+              <div class="sbr-title mr-5 mb-0 h4 py-3">who to follow</div>
               <div class=" h4 py-3">
                 <a class="" href="#" id="" data-toggle="">
                   <div class="">
-                    <i class="" data-feather="refresh-cw"></i>
+                    <i class="title-icon" data-feather="refresh-cw"></i>
                   </div>
                 </a>
               </div>
@@ -99,7 +99,7 @@
             <div class="d-flex align-items-center">
               <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle">
                     <% unless user[:photo].nil? %>
-                    <%= image_tag user.pic.thumb.url, class: 'photo' %>
+                    <%= image_tag user.photo.thumb.url, class: 'photo' %>
                   <% else %>
                     <%= gravatar_for user, size: 50 %>
                   <% end %>
@@ -116,11 +116,11 @@
 
           <div class="trending-section">
             <div class="trending-head d-flex justify-content-between text-capitalize">
-              <div class=" mr-5 mb-0 h4 py-3">trending</div>
+              <div class="sbr-title mr-5 mb-0 h4 py-3">trending</div>
               <div class=" h4 py-3">
                 <a class="" href="#" id="" data-toggle="">
                   <div class="">
-                    <i class="" data-feather="trending-up"></i>
+                    <i class="title-icon" data-feather="trending-up"></i>
                   </div>
                 </a>
               </div>
@@ -143,31 +143,6 @@
       </div>
     </div>
 
-    <footer class="footer">
-      <div class="container-fluid">
-        <div class="row text-muted">
-          <div class="col-6 text-left">
-            <p class="mb-0">
-              <%= link_to root_path, class:'footer-logo' do %>
-              <strong>&copy;Twidder <%= Time.now.year %></strong>
-              <% end %>
-            </p>
-          </div>
-          <div class="col-6 text-right">
-            <ul class="list-inline footer-map">
-              <li class="list-inline-item">
-                <a class="" href="#">Support</a>
-              </li>
-              <li class="list-inline-item">
-                <a class="" href="#">Privacy</a>
-              </li>
-              <li class="list-inline-item">
-                <a class="" href="#">Terms</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render partial: 'shared/footer' %>
   </div>
 </div>
