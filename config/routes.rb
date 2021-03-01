@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
   post '/create_opinion', to: 'opinions#create', as: :new_opinion
   get '/follow/:followed_id', to: 'followings#create', as: :follow
   delete '/:followed_id', to: 'followings#destroy', as: :unfollow

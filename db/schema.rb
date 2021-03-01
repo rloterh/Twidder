@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_032604) do
     t.text "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "photo"
-    t.text "cover_img"
+    t.string "photo"
+    t.string "cover_img"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 

@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 50 }
   validates :fullname, presence: true, length: { minimum: 3, maximum: 80 }
 
+  mount_uploader :photo, ImageUploader
+  mount_uploader :cover_img, ImageUploader
+
   def self.user_followers(id, curr_user_id)
     Following.where(followed_id: id).where.not(follower_id: curr_user_id).order(created_at: :desc).limit(5)
   end
