@@ -2,7 +2,13 @@
   <div class="sidebar-content js-simplebar">
 
     <div class="d-flex align-items-center sidebar-userinfo">
-      <picture class="m-4 rounded" style="width:75px; height:75px; background:#fff"><img src=""></picture>
+      <picture class="m-4 rounded" style="width:75px; height:75px; background:#fff">
+        <% if current_user[:photo].nil? %>
+        <%= gravatar_for current_user, size: 50 %>
+      <% else %>
+        <%= image_tag current_user.photo.thumb.url %>
+      <% end %> 
+      </picture>
       <h5 class="text-white"><%= current_user.fullname %></h5>
     </div>
 

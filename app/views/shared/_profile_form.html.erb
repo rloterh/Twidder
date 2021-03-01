@@ -1,0 +1,4 @@
+<%= simple_form_for @opinion do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :text, as: :string, label: false, wrapper: false, placeholder: 'tell what I\'m doing...', value: '@user name', input_html: { class: 'opinion-form' }%>
+<% end %>

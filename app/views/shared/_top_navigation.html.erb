@@ -38,6 +38,16 @@
           </div>
         </a>
       </li>
+      <li class="nav-item dropdown">
+        <%= link_to logout_path(current_user.id), method: :delete do %>
+        <div class="nav-icon dropdown-toggle">
+          <div class="position-relative">
+            <i class="align-middle" data-feather="log-out"></i>
+          </div>
+        </div>
+        <% end %>
+      </li>
+
     </ul>
   </div>
 </nav>
