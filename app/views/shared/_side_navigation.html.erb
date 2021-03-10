@@ -1,68 +1,68 @@
 <nav id="sidebar" class="sidebar">
   <div class="sidebar-content js-simplebar">
 
-    <div class="d-flex align-items-center sidebar-userinfo">
-      <picture class="m-4 rounded" style="width:75px; height:75px; background:#fff">
+    <div class="sidebar-userinfo d-flex align-items-center ">
+      <picture class="sbl-userimg m-4 mr-3">
         <% if current_user[:photo].nil? %>
-        <%= gravatar_for current_user, size: 50 %>
+        <%= gravatar_for current_user, size: 75 %>
       <% else %>
-        <%= image_tag current_user.photo.thumb.url %>
+        <%= cl_image_tag current_user.photo.user_photo.url %>
       <% end %> 
       </picture>
-      <h5 class="text-white"><%= current_user.fullname %></h5>
+      <h5 class="text-capitalize"><%= current_user.fullname %></h5>
     </div>
 
-    <div class="d-flex align-items-center sb-followinfo">
+    <div class="d-flex align-items-center sb-followinfo text-capitalize">
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center following-sbdiv">
-        <h6 class="pt-3"><%= current_user.followed.size %></h6>
-        <h6 class="pb-3">following</h6>
+        <h6 class="sbl-statsfigure pt-3"><%= current_user.followed.size %></h6>
+        <h6 class="sbl-statstitle pb-3">following</h6>
       </div>
       <div class="flex-fill d-flex flex-column align-items-center justify-content-center">
-        <h6 class="pt-3"><%= current_user.followers.size %></h6>
-        <h6 class="pb-3">followers</h6>
+        <h6 class="sbl-statsfigure pt-3"><%= current_user.followers.size %></h6>
+        <h6 class="sbl-statstitle pb-3">followers</h6>
       </div>
     </div>
 
     <ul class="sidebar-nav text-capitalize">
       <li class="sidebar-item active">
-        <%= link_to root_path, class:'d-inline' do %>
-        <div class="sidebar-link">
-          <i class="align-middle" data-feather="home"></i> 
+        <%= link_to root_path, class:'sidebar-link' do %>
+          <i class="align-middle home"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home align-middle"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></i> 
           <span class="align-middle d-inline">home</span>
-        </div>
         <% end %>
       </li>
 
       <li class="sidebar-item">
         <a class="sidebar-link">
-          <i class="align-middle" data-feather="at-sign"></i> <span class="align-middle">connect</span>
+          <i class="align-middle at-sign">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign align-middle"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>
+          </i>
+          <span class="align-middle">connect</span>
         </a>
       </li>
 
       <li class="sidebar-item">
         <a class="sidebar-link">
-          <i class="align-middle" data-feather="hash"></i> <span class="align-middle">discover</span>
+          <i class="align-middle hash"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hash align-middle"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg></i><span class="align-middle">discover</span>
         </a>
       </li>
 
       <li class="sidebar-item">
         <%= link_to user_path(current_user.id) do %>
         <div class="sidebar-link">
-          <i class="align-middle" data-feather="user"></i> 
-          <span class="align-middle">profile</span>
+          <i class="align-middle user"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i><span class="align-middle">profile</span>
         </div>
         <% end %>
       </li>
 
       <li class="sidebar-item">
         <a class="sidebar-link">
-          <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">statistics</span>
+          <i class="align-middle bar-chart-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bar-chart-2 align-middle"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></i><span class="align-middle">statistics</span>
         </a>
       </li>
 
       <li class="sidebar-item">
         <a class="sidebar-link">
-          <i class="align-middle" data-feather="more-horizontal"></i> <span class="align-middle">more</span>
+          <i class="align-middle more-horizontal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></i><span class="align-middle">more</span>
         </a>
       </li>
     </ul>
