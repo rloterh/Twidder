@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @opinion = Opinion.new
     @opinions = @user.opinions.order('created_at DESC').limit(5)
     @followers = User.user_followers(params[:id], current_user.id)
   end

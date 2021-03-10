@@ -7,8 +7,15 @@ class OpinionsController < ApplicationController
 
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.order('created_at DESC').includes(:author).limit(5)
+    @opinions = Opinion.order('created_at DESC').includes(:author).limit(10)
     @users = User.all_users(current_user.id).order('created_at DESC')
+  end
+
+  def reply
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
