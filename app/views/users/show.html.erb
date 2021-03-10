@@ -17,15 +17,20 @@
         <div class="d-flex flex-column col-sm-6 col-lg-9">
           <!-- MAIN CONTENT -->
           <div class="cover-img">
+            <% unless @user[:cover_img].nil? %>
+              <%= cl_image_tag @user.cover_img.cover.url, class: '' %>
+            <% else %>
+              <img src="https://via.placeholder.com/817x240" alt="">
+            <% end %>
           </div>
 
           <div class="twidder-menu d-flex text-capitalize">
-            <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">twids</div>
-            <div class="menu-inactive mr-5 h4 py-3">photos</div>
-            <div class="menu-inactive mr-5 h4 py-3">followers</div>
-            <div class="menu-inactive mr-5 h4 py-3">following</div>
-            <div class="menu-inactive mr-5 h4 py-3">favorites</div>
-            <div class="menu-inactive mr-5 h4 py-3">lists</div>
+            <div class=" px-3 mb-0 h4 menu-highlight py-3">twids</div>
+            <div class="menu-inactive px-4 h4 py-3">photos</div>
+            <div class="menu-inactive px-4 h4 py-3">followers</div>
+            <div class="menu-inactive px-4 h4 py-3">following</div>
+            <div class="menu-inactive px-4 h4 py-3">favorites</div>
+            <div class="menu-inactive px-4 h4 py-3">lists</div>
           </div>
 
           <div class="opinion-container d-flex flex-column">
@@ -49,9 +54,14 @@
                 </div>
                 <% @opinions.each do |opinion| %>
                 <div class="d-flex align-items-start py-4">
-                  <div class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
-                    <picture class=""></picture>
-                  </div>
+                  <picture class="newopinion-img m-4 mr-3 ml-0 mt-0 d-block">
+                    <% if opinion.author[:photo].nil? %>
+                      <%= gravatar_for opinion.author, size: 50 %>
+                    <% else %>
+                      <%= cl_image_tag opinion.author.photo.thumb.url %>
+                    <% end %>
+                  </picture>
+                  
                   <div class="flex-fill d-flex flex-column">
                     <div class="d-flex justify-content-between">
                       <h6 class="newopinion-author"><%= opinion.author.fullname %></h6>
@@ -61,12 +71,12 @@
                     <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
                     <div class="d-flex justify-content-between align-items-end">
                       <!-- Like -->
-                      <%= like_or_dislike_btn(opinion) %>
+                      <%= like_or_dislike_toggle(opinion) %>
                     </div>
                     <div class="d-flex justify-content-between align-items-end">
                       <div class='user-comments'>
-                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments } %>
-                        <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion } %>
+                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments, remote: true } %>
+                        <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion, remote: true} %>
                       </div>
 
                     </div>
@@ -87,25 +97,44 @@
           <div class="profile-section">
 
             <div class="d-flex align-items-center sbr-profile">
-              <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
-                <div class="py-1">
-                  <i class="follow-picon feather-32" data-feather="plus-circle"></i>
-                </div>
-              </div>
+              <% unless current_user.id == @user.id %>
+                <% if current_user.followed.any? { |person| person.followed_id == @user.id }%> 
+                    <div class=" flex-fill d-flex flex-column align-items-end justify-content-center"> 
+                      <%= link_to unfollow_path(@user), method: :delete do %>
+                      <i class="follow-picon py-1 feather-32 minus-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle feather-32"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></i>
+                      <!-- <span class="indicator d-block">unfollow</span> -->
+                      <% end %>
+                    </div>
+                    
+                <%else%>
+                    
+                    <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
+                      <%= link_to follow_path(@user) do %> 
+                      <i class="follow-picon py-1 feather-32 plus-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle follow-picon feather-32"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></i>
+                      <% end %>
+                    </div>
+                    
+                <% end %>
+              <% end %>
               <div class="flex-fill d-flex flex-column align-items-center justify-content-center my-3">
-                <picture class="profile-img rounded-circle">
+                <picture class="profile-img">
+                  <% unless @user[:photo].nil? %>
+                    <%= cl_image_tag @user.photo.profile.url %>
+                  <% else %>
+                    <%= gravatar_for @user, size: 96 %>
+                  <% end %>
                 </picture>
               </div>
               <div class="flex-fill d-flex flex-column align-items-start justify-content-center">
                 <div class="py-1">
-                  <i class="follow-licon feather-32" data-feather="list"></i>
+                  <i class="follow-icon feather-32 list"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list follow-licon feather-32"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg></i>
                 </div>
               </div>
             </div>
 
             <div class="profile-name d-flex flex-column justify-content-between">
-              <h6 class="profile-fullname text-center">Profile username</h6>
-              <h6 class="profile-username text-center">@username</h6>
+              <h6 class="profile-fullname text-center "><%= @user.fullname %></h6>
+              <h6 class="profile-username text-center">@<%= @user.username %></h6>
             </div>
           </div>
 
@@ -113,58 +142,75 @@
 
             <div class="d-flex align-items-center ">
               <div class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center">
-                <h6 class="stats-figure pt-1"><%= current_user.followed.size %></h6>
+                <h6 class="stats-figure pt-1"><%= @opinions.size %></h6>
                 <h6 class="stats-category pb-1">twids</h6>
               </div>
               <div
                 class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center profile-stats">
-                <h6 class="stats-figure pt-1"><%= current_user.followed.size %></h6>
+                <h6 class="stats-figure pt-1"><%= @user.followed.size %></h6>
                 <h6 class="stats-category pb-1">following</h6>
               </div>
               <div class="stats-box flex-fill d-flex flex-column align-items-center justify-content-center ">
-                <h6 class="stats-figure pt-1"><%= current_user.followers.size %></h6>
+                <h6 class="stats-figure pt-1"><%= @user.followers.size %></h6>
                 <h6 class="stats-category pb-1">followers</h6>
               </div>
             </div>
           </div>
 
           <div class="tofollow-section">
-
-            <div class="tofollow-head d-flex justify-content-between text-capitalize">
+            
+            <div class="followedby-head d-flex justify-content-between text-capitalize mb-3">
               <div class="sbr-title mr-5 mb-0 h4 py-3">followed by</div>
               <div class=" h4 py-3">
-                <a class="" href="#" id="" data-toggle="">
-                  <div class="">
-                    <i class="title-icon" data-feather="refresh-cw"></i>
-                  </div>
+                <a class="" href="#">
+                  <i class="title-icon refresh-cw">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw title-icon"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  </i>
                 </a>
               </div>
             </div>
-
-            <div class="d-flex align-items-center">
-
-              <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle">
+            
+            <% @followers.each do |follower| %>
+            <div class="d-flex align-items-center pb-4">
+              
+              <picture class="followed-by-img mr-3 ml-0">
+                <% unless follower.Follower[:photo].nil? %>
+                  <%= image_tag follower.Follower.photo.thumb.url %>
+                <% else %>
+                  <%= gravatar_for follower.Follower, size: 64 %>
+                <% end %>
               </picture>
               <div class="flex-fill d-flex flex-column ">
-                <h6 class="tofollow-fullname pt-3">User John</h6>
-                <h6 class="tofollow-username pb-3">@some user</h6>
+                <h6 class="followedby-fullname pt-3"><%= follower.Follower.fullname %></h6>
+                <h6 class="followedby-username pb-3">@<%= follower.Follower.username %></h6>
               </div>
               <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
                 <div class="py-1">
-                  <i class="follow-picon feather-32" data-feather="plus-circle"></i>
+                  <% if current_user.followed.any? { |person| person.followed_id == follower.Follower.id }%>
+                    <%= link_to unfollow_path(follower.Follower), method: :delete do %>
+                      <i class="follow-picon feather-32 minus-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-minus-circle follow-picon feather-32"><circle cx="12" cy="12" r="10"></circle><line x1="8" y1="12" x2="16" y2="12"></line></svg></i>
+                    <% end %>
+                  <%else%>
+                    <%= link_to follow_path(follower.Follower) do %>
+                      <i class="follow-picon feather-32 plus-circle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-circle follow-picon feather-32"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg></i>
+                    <% end %>
+                  <% end %>
                 </div>
               </div>
+              
             </div>
+            <% end %>
+            
           </div>
 
-          <div class="trending-section">
+          <div class="trending-section mt-3">
             <div class="trending-head d-flex justify-content-between text-capitalize">
               <div class="sbr-title mr-5 mb-0 h4 py-3">trending</div>
               <div class=" h4 py-3">
-                <a class="" href="#" id="" data-toggle="">
-                  <div class="">
-                    <i class="title-icon" data-feather="trending-up"></i>
-                  </div>
+                <a class="" href="#">
+                  <i class="title-icon trending-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up title-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                  </i>
                 </a>
               </div>
             </div>
