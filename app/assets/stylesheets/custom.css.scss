@@ -1,16 +1,17 @@
-* {
-  box-sizing: border-box;}
+body {
+  margin: 0!important;
+  padding: 0!important;
+}
 .main-nav {
-
-  display:inline;
-  overflow: hidden;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
   position:fixed;
   top: 0;
-  /* background-color:#00aae5; */
   background-image: linear-gradient(to top, #52a6e6, #49a7e6, #40a8e6, #34a8e6, #26a9e6, #26a9e7, #26aae7, #26aae8, #35aaea, #40abeb, #4babed, #54abee);
-
   width:100%
 }
+
 .main {
   display: block;
   background-color: #f5f6f8;
@@ -23,16 +24,12 @@
 }
 
 .sb-followinfo {
-  border-top: 1px solid #122238;
-  border-bottom: 1px solid #122238;
+  border-top: 1px solid #0c1930;
+  border-bottom: 1px solid #0c1930;
 }
 
 .following-sbdiv {
-  border-right: 1px solid #122238;
-}
-
-.sb-followinfo h6 {
-  color:#e9ecef;
+  border-right: 1px solid #0c1930;
 }
 
 .cover-img {
@@ -42,8 +39,10 @@
 
 .twidder-menu,
 .tofollow-head,
+.followedby-head,
 .trending-head,
 .tofollow-section,
+.followedby-section,
 .profile-section,
 .stats-section {
   border-bottom: 1px solid #dfdfdf;
@@ -115,12 +114,23 @@
 
 }
 
-
-
+.followed-by-img,
 .tofollow-img,
 .newopinion-img {
   width:64px;
   height:64px;
+  border: 1px solid #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+}
+
+.followed-by-img,
+.tofollow-img,
+.profile-img,
+.followed-by-img img,
+.tofollow-img img,
+.profile-img img,
+.commentor-img img {
+  border-radius: 50%;
 }
 
 .profile-img {
@@ -140,6 +150,7 @@
 .newopinion-author {
   font-weight: 700;
   font-size: 15px;
+  color: #535353;
 }
 
 .newopinion-time {
@@ -147,13 +158,17 @@
 }
 
 .newopinion-img {
-  background:#909192;
   max-height: 64px;
   min-height: 64px;
-  background-size:contain;
 }
 
-.newopinion-img picture {
+.commentor-img {
+  max-height: 56px;
+  min-height: 56px;
+}
+
+.newopinion-img img {
+  border-radius: 3px;
   width: 100%;
   min-width: 64px;
   display: block;
@@ -162,6 +177,10 @@
 .tofollow-section,
 .trending-section {
   padding: 0 6%;
+}
+
+.tofollow-section a {
+  text-decoration: none;
 }
 
 .trending-list {
@@ -217,6 +236,11 @@
   right: auto;
 }
 
+.feather-16 {
+  width: 24px;
+  height: 24px;
+}
+
 .feather-24{
   width: 24px;
   height: 24px;
@@ -245,6 +269,7 @@
 .profile-username {
   color: #898989;
   font-weight: 400;
+  line-height: 17px;
 }
 
 .stats-figure {
@@ -257,12 +282,14 @@
   color: #777;
 }
 
-.tofollow-fullname {
+.tofollow-fullname,
+.followedby-fullname {
   color: #3b3b3b;
   font-weight: 700;
 }
 
-.tofollow-username {
+.tofollow-username,
+.followedby-username {
   color: #aaa;
   font-weight: 300;
   font-size: 14px;
@@ -274,7 +301,66 @@
   color: #777;
 }
 
+.sbl-userimg {
+  width: 75px;
+  height: 75px;
+}
 
+.sbl-userimg img {
+  border-radius: 3px;
+}
+
+.sidebar-userinfo h5 {
+  font-size: 14px;
+  // color:rgba(233, 236, 239, 0.5);
+  color: #dee3e7;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+
+.sbl-statsfigure {
+  font-weight: 700;
+  font-size: 18px;
+  color: #e9ecef;
+}
+
+.sbl-statstitle {
+  color: #aab4bb;
+}
+
+.fs-18 {
+  max-width: 18px;
+  max-height: 18px;
+}
+
+.opinion-stat1::first-letter,
+.opinion-stat2::first-letter {
+  font-weight: 700;
+}
+
+.comment-bg {
+  background-color:#e8f0fe;
+  border-radius: 25px;
+  padding: 8px 13px;
+}
+
+.commentor-details {
+  font-size: 12px;
+  color: #8d8787;
+}
+
+.reply-content {
+  letter-spacing: 1.5px;
+  color: #585656;
+}
+
+.txt-bold {
+  font-weight: 700;
+}
+
+// .sb-followinfo h6 {
+//   color:#e9ecef;
+// }
 
 @media (min-width:992px) {
   .main {

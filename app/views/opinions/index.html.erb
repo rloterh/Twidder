@@ -17,15 +17,20 @@
         <div class="d-flex flex-column col-sm-6 col-lg-9">
           <!-- MAIN CONTENT -->
           <div class="twidder-menu d-flex text-capitalize">
-            <div class=" mr-5 mb-0 h4 menu-highlight pl-3 py-3">twids</div>
-            <div class="menu-inactive mr-5 h4 py-3">photos</div>
-            <div class="menu-inactive mr-5 h4 py-3">videos</div>
+            <div class=" px-4 mb-0 h4 menu-highlight py-3">twids</div>
+            <div class="menu-inactive px-4 h4 py-3">photos</div>
+            <div class="menu-inactive px-4 h4 py-3">videos</div>
           </div>
 
           <div class="opinion-container d-flex flex-column">
             <div class="d-flex flex-column align-items-center">
               <div class="opinion-section">
                 <p class="createopinion-title mb-2 text-capitalize">twid something</p>
+                <% if @opinion.errors.full_messages.any? %>
+                  <% @opinion.errors.full_messages.each do |message| %>
+                  <p class="text-danger"><%= message %></p>
+                  <% end %>
+                <% end %>
                 <div class="create-opinion">
                   <!-- <div class="opinion-form"> -->
                     <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
@@ -39,13 +44,17 @@
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
                 <div class="tofollow-head text-capitalize">
-                  <div class="mr-5 mb-0 py-3 newopinion-title">4 new twids</div>
+                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= @opinions.count %>  new twids</div>
                 </div>
                 <% @opinions.each do |opinion| %>
                 <div class="d-flex align-items-start py-4">
-                  <div class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
-                    <picture class=""></picture>
-                  </div>
+                  <picture class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
+                    <% if opinion.author[:photo].nil? %>
+                      <%= gravatar_for opinion.author, size: 64 %>
+                    <% else %>
+                      <%= cl_image_tag opinion.author.photo.author_photo.url %>
+                    <% end %>
+                  </picture>
                   <div class="flex-fill d-flex flex-column">
                     <div class="d-flex justify-content-between">
                       <h6 class="newopinion-author"><%= opinion.author.fullname %></h6>
@@ -53,24 +62,35 @@
                     </div>
                     
                     <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
-                    <div class="d-flex justify-content-between align-items-end">
+                    <div class="d-flex justify-content-between"><!-- align-items-end -->
                       <!-- Like -->
-                      <%= like_or_dislike_btn(opinion) %> 
+                      <div class="d-flex opinion-stats">
+                        <p class="opinion-stat1 text-capitalize pr-3"><% if opinion.likes.any? %><%= "#{pluralize(opinion.likes.size, 'like')}" %><% end %></span>
+                        <p class="opinion-stat2 text-capitalize"><% if opinion.comments.any? %><%= "#{pluralize(opinion.comments.count, 'reply')}" %><% end %></span>
+                        <!-- <span><span class="mid-bold"><%#= opinion.comments.count %></span> replies</span> -->
+                      </div>
+                      <div class="d-flex">
+                        <span class="pr-4"><%= like_or_dislike_toggle(opinion) %></span>
+                        <div class="">
+                          <%= link_to new_reply_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} do %>
+                          <i class="align-middle message-square pr-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fs-18 feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></i><span class="text-capitalize">reply</span>
+                          <% end %>
+                            <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content"></div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                       
                     </div>
                     <div class="d-flex justify-content-between align-items-end">
                       <div class='user-comments'>
-                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments } %>
-                        <%= render partial: 'shared/comment_form', locals: { comment: opinion.comments.new, opinion: opinion } %>
-                    </div>
+                        <%= render partial: 'comments/comment', locals: { collection: opinion.comments }, remote: true %>
+                        
+                      </div>
 
                     </div>
-
-                    
-
-
-
-
-
                   </div>
                 </div>
                 <% end %>
@@ -80,48 +100,47 @@
 <!--  -->
         </div>
 
-
+<!-- RIGHT ASIDE -->
         <div class="right-aside col-sm-6 col-lg-3 right-sec">
-
-          <div class="tofollow-section">
-            <div class="tofollow-head d-flex justify-content-between text-capitalize">
+          <div class="tofollow-section pb-3">
+            <div class="tofollow-head d-flex justify-content-between text-capitalize mb-3">
               <div class="sbr-title mr-5 mb-0 h4 py-3">who to follow</div>
               <div class=" h4 py-3">
-                <a class="" href="#" id="" data-toggle="">
-                  <div class="">
-                    <i class="title-icon" data-feather="refresh-cw"></i>
-                  </div>
+                <a class="" href="#">
+                  <i class="title-icon refresh-cw">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-refresh-cw title-icon"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  </i>
                 </a>
               </div>
             </div>
             <% @users.each do |user| %>
-            <%= link_to user_path(user), class: 'user' do %>
+            <%= link_to user_path(user) do %>
             <div class="d-flex align-items-center">
-              <picture class="tofollow-img m-4 mr-3 ml-0 rounded-circle">
-                    <% unless user[:photo].nil? %>
-                    <%= image_tag user.photo.thumb.url, class: 'photo' %>
-                  <% else %>
-                    <%= gravatar_for user, size: 50 %>
-                  <% end %>
+              <picture class="tofollow-img mr-3 ml-0">
+                <% unless user[:photo].nil? %>
+                  <%= cl_image_tag user.photo.follow.url %>
+                <% else %>
+                  <%= gravatar_for user, size: 64 %>
+                <% end %>
               </picture>
               <div class="flex-fill d-flex flex-column ">
-                <h6 class="pt-3"><%= user.fullname %></h6>
-                <h6 class="pb-3">Followed by....</h6>
+                <h6 class="tofollow-fullname pt-3"><%= user.fullname %></h6>
+                <h6 class="tofollow-username pb-3">@<%= user.username %>  
+                </h6>
               </div>  
             </div>
             <% end %>
             <% end %>
-
           </div>
 
           <div class="trending-section">
             <div class="trending-head d-flex justify-content-between text-capitalize">
               <div class="sbr-title mr-5 mb-0 h4 py-3">trending</div>
               <div class=" h4 py-3">
-                <a class="" href="#" id="" data-toggle="">
-                  <div class="">
-                    <i class="title-icon" data-feather="trending-up"></i>
-                  </div>
+                <a class="" href="#">
+                  <i class="title-icon trending-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up title-icon"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                  </i>
                 </a>
               </div>
             </div>
