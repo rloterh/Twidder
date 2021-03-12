@@ -44,7 +44,7 @@
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
                 <div class="tofollow-head text-capitalize">
-                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= @opinions.count %>  new twids</div>
+                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= @opinions.count %> new twids</div>
                 </div>
                 <% @opinions.each do |opinion| %>
                 <div class="d-flex align-items-start py-4">
@@ -61,7 +61,7 @@
                       <h6 class="pl-3 newopinion-time"><%=opinion.created_at.strftime("%H") %>h</h6>
                     </div>
                     
-                    <p class="twid-msg pb-3 d-inline"><%= opinion.text %></p>
+                    <p class="twid-msg py-2 pl-3 d-inline"><%= opinion.text %></p>
                     <div class="d-flex justify-content-between"><!-- align-items-end -->
                       <!-- Like -->
                       <div class="d-flex opinion-stats">
@@ -72,7 +72,7 @@
                       <div class="d-flex">
                         <span class="pr-4"><%= like_or_dislike_toggle(opinion) %></span>
                         <div class="">
-                          <%= link_to new_reply_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} do %>
+                          <%= link_to new_reply_path(opinion_id: opinion.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} do %>
                           <i class="align-middle message-square pr-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fs-18 feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></i><span class="text-capitalize">reply</span>
                           <% end %>
                             <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -87,9 +87,7 @@
                     <div class="d-flex justify-content-between align-items-end">
                       <div class='user-comments'>
                         <%= render partial: 'comments/comment', locals: { collection: opinion.comments }, remote: true %>
-                        
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -125,8 +123,7 @@
               </picture>
               <div class="flex-fill d-flex flex-column ">
                 <h6 class="tofollow-fullname pt-3"><%= user.fullname %></h6>
-                <h6 class="tofollow-username pb-3">@<%= user.username %>  
-                </h6>
+                <h6 class="tofollow-username pb-3">@<%= user.username %></h6>
               </div>  
             </div>
             <% end %>

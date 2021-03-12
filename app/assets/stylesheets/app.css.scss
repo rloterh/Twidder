@@ -14077,7 +14077,7 @@ button.close {
 }
 
 footer.footer {
-  padding: 3px 1rem .875rem;
+  padding: 8px 0;
   direction: ltr;
 }
 
@@ -14552,7 +14552,7 @@ a.sidebar-link {
 .sidebar-link svg,
 a.sidebar-link i,
 a.sidebar-link svg {
-  margin-right: .75rem;
+  margin-right: 3px;
   color: rgba(233, 236, 239, .5)
 }
 
@@ -14575,14 +14575,14 @@ a.sidebar-link svg {
 .sidebar-item.active>.sidebar-link {
   color: #e9ecef;
   background: linear-gradient(90deg, rgba(59, 125, 221, .1), rgba(59, 125, 221, .0875) 50%, transparent);
-  border-left-color: #3b7ddd
+  border-left-color: #3b7ddd;
 }
 
 .sidebar-item.active .sidebar-link:hover i,
 .sidebar-item.active .sidebar-link:hover svg,
 .sidebar-item.active>.sidebar-link i,
 .sidebar-item.active>.sidebar-link svg {
-  color: #e9ecef
+  color: #e9ecef;
 }
 
 .sidebar-dropdown .sidebar-link {

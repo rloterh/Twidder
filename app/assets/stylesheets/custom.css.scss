@@ -98,8 +98,9 @@ body {
 .twid-msg {
   letter-spacing: 0.6px;
   color: #595959;
-  // word-break: break-word;
-  // display: inline-block;
+  background-color: rgba(40, 137, 233, 0.062);
+  display:inline;
+  border-radius: 3px;
   white-space: break-spaces;
   overflow-wrap: break-word;
   word-break: break-all;
@@ -175,11 +176,13 @@ body {
 }
 
 .tofollow-section,
-.trending-section {
+.trending-section,
+.followedby-section {
   padding: 0 6%;
 }
 
-.tofollow-section a {
+.tofollow-section a,
+.followedby-section a {
   text-decoration: none;
 }
 
@@ -358,9 +361,23 @@ body {
   font-weight: 700;
 }
 
+.modal-footer h6 {
+  color: #7e7e7e;
+  font-weight: 500;
+  letter-spacing: 1.3px;
+  font-style: italic;
+  text-shadow: 0 1px 0 color;
+}
+
 // .sb-followinfo h6 {
 //   color:#e9ecef;
 // }
+
+.sidebar-item a:active {
+  color: #e9ecef;
+  background: linear-gradient(90deg, rgba(59, 125, 221, .1), rgba(59, 125, 221, .0875) 50%, transparent);
+  border-left-color: #3b7ddd;
+}
 
 @media (min-width:992px) {
   .main {
