@@ -110,11 +110,6 @@ body {
   border-left: 1px solid #dfdfdf;
 }
 
-.profile-section {
-  // height: 160px;
-
-}
-
 .followed-by-img,
 .tofollow-img,
 .newopinion-img {
@@ -381,6 +376,6 @@ body {
 
 @media (min-width:992px) {
   .main {
-    /* box-shadow: inset .75rem 0 1.5rem 0 rgba(0, 0, 0, .075) */
+     box-shadow: inset .75rem 0 1.5rem 0 rgba(0, 0, 0, .075) 
   }
 }

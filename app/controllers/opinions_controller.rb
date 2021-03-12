@@ -35,7 +35,7 @@ class OpinionsController < ApplicationController
   end
 
   private
-  # Only allow a list of trusted parameters through.
+
   def opinion_params
     params.require(:opinion).permit(:text)
   end
