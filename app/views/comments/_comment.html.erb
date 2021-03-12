@@ -8,7 +8,7 @@
       <% end %>
     </picture>
     <div class=" comment-bg d-flex flex-column ">
-      <h6 class="commentor-details mb-1">Reply by <span class="txt-bold"><%= comment.commentor.username %></span><span>, on <%= comment.created_at.strftime("%Y/%m/%d") %></span></h6>
+      <h6 class="commentor-details mb-1"><span class="text-capitalize">reply</span> by <span class="txt-bold text-capitalize"><%= comment.commentor.username %></span><span>, on <%= comment.created_at.strftime("%Y/%m/%d") %></span></h6>
       <h6 class="reply-content mb-0"><%= comment.content %></h6>
     </div>
   </div>
