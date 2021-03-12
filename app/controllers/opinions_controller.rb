@@ -12,6 +12,7 @@ class OpinionsController < ApplicationController
   end
 
   def reply
+    @opinion = Opinion.find(params[:opinion_id])
     respond_to do |format|
       format.html
       format.js
