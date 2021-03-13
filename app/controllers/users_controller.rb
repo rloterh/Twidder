@@ -9,6 +9,10 @@ class UsersController < ApplicationController
   def new
     session[:user_id] = nil if logged_in?
     @user = User.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit; end
