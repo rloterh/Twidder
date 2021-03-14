@@ -9,14 +9,11 @@
   <h3 class="text-capitalize">create twidder account</h3>
 </div>
 
-<%= simple_form_for (:session), url: login_path, html: {class: 'login-form'} do |f| %>
-  <%= f.input :username, placeholder: 'Your user name' %>
-  <%= f.button :submit, 'Log in' %> 
-  <!-- <%#= link_to "Sign up", signup_path %> -->
-  <%= link_to "Sign up", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} %>
+
+<%= link_to "Login", login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} %>
+<%= link_to "Sign up", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} %>
   <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content"></div>
     </div>
   </div>
-<% end %>
