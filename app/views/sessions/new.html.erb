@@ -9,8 +9,12 @@
   <h3 class="text-capitalize">create twidder account</h3>
 </div>
 
-
 <%= link_to "Login", login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} %>
+<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content"></div>
+  </div>
+</div>
 <%= link_to "Sign up", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} %>
   <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
