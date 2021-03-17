@@ -1,10 +1,9 @@
 <div class="modal-header">
-  <h4 class="modal-title text-capitalize" id="myModalLabel">Sign "Up to Twidder</h4>
+  <h4 class="modal-title text-capitalize" id="myModalLabel">signup to twidder</h4>
   <button type="button" class="close" data-dismiss="modal">x</button>
 </div>
 <div class="modal-body">
-  
-  <div>
+  <div class="mb-1">
     <svg viewBox="0 0 24 24" width="32" fill="#0287fd">
       <g>
         <path
@@ -12,29 +11,59 @@
         ></path>
       </g>
     </svg>
-    <h3 class="text-capitalize">create twidder account</h3>
+    <h5 class="modal-note text-capitalize text-bold mt-2">create twidder account</h5>
   </div>
   
-  <% if @user.errors.any? %>
-  <h3>
-    <%= pluralize(@user.errors.count, "error") %> prohibited this user from being
-    saved:
-  </h3>
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+  <%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
+    <% if flash[:notice] %>
+      <p class="text-center text-success"><%= notice %></p>
     <% end %>
-  </ul>
-  <% end %>
-    <%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
-    <%= f.input :fullname, label: 'Full name', placeholder: 'Full name' %> <%= f.input :username, label: 'UserName', placeholder: 'Choose a userName' %>
-    <%= f.file_field :photo, label: 'Profile z' %>
-    <%= f.file_field :cover_img, label: 'Cover photo' %>
-    <%= f.button :submit, 'Sign Up'%>
-    <%= link_to "Log in", login_path %>
+    <% if @user.errors.any? %>
+      <h4 class="text-danger text-bold"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h4>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <div class="mt-2">
+      <%= f.input :fullname, label: 'Full name', placeholder: 'Full name', label_html: {class: 'usrform-label'}, input_html: {class: 'usrform-input'} %>
+    </div>
+    <div class="my-3">
+      <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input'} %>
+    </div>
+    <div class="d-flex align-items-between pt-2">
+      <label class="flex-fill">
+        <span class="usrform-label image-upload"><span class="text-capitalize">profile </span>image:</span>
+        <%= f.file_field :photo, class: 'user-imgup' %>
+      </label>
+      <label class="flex-fill">
+        <span class="usrform-label image-upload"><span class="text-capitalize">cover </span>photo:</span>
+        <%= f.file_field :cover_img, class: 'user-imgup'%>
+      </label>
+    </div>
+    <div class="signupbtn-section d-flex flex-column align-items-center justify-content-center mt-4 pt-2">
+      <div class="my-2">
+        <%= f.button :submit, 'Sign up', class: 'signupsubmit-btn btn' %>
+      </div>
+      <div class="my-2">
+        <%= link_to "Log in", login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'my-0 optlogin-btn'} %>
+        <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content"></div>
+          </div>
+       </div>
+      </div>
+    </div>
   <% end %>
   
 </div>
 <div class="modal-footer">
-  <h6>Twid ('tell what I'm doing!')</h6>
+  <div class="mfooter-conent d-flex align-items-center justify-content-end">
+    
+    <div class="">
+      <h6 class="my-0"><span class="abbrv">Twid</span> - tell what I'm doing!</h6>
+    </div>
+  </div>
+  
 </div>
