@@ -3065,7 +3065,7 @@ progress {
   display: inline-block;
   font-weight: 400;
   line-height: 1.5;
-  color: #495057;
+  // color: #495057;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -5769,7 +5769,6 @@ button.close {
   flex-wrap: wrap;
   flex-shrink: 0;
   align-items: center;
-  justify-content: flex-end;
   padding: .75rem;
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: .3rem;

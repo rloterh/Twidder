@@ -357,11 +357,60 @@ body {
 }
 
 .modal-footer h6 {
-  color: #7e7e7e;
+  color: #0287fd;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 1.3px;
-  font-style: italic;
-  text-shadow: 0 1px 0 color;
+}
+
+.mfooter-conent {
+  width: 100%;
+}
+// text-shadow: 0 1px 0 ;
+.abbrv {
+  font-weight: 600;
+  text-shadow: none;
+  letter-spacing: 1.5px; 
+}
+
+.signupsubmit-btn,
+.loginsubmit-btn {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(39, 151, 248, 1);
+  letter-spacing: 1px;
+  line-height: 18px;
+  background: transparent;
+  border: 2px solid rgb(39, 151, 248);
+  border-radius: 40px;
+  transition: all 0.3s ease 0s;
+  &:hover { 
+    color: rgba(255, 255, 255, 1);
+    background: rgba(39, 151, 248, 0.8);
+    border: 2px solid rgba(39, 151, 248, 1);
+  }
+}
+
+.optlogin-btn,
+.optsignup-btn {
+  font-size: 13px;
+  color: rgba(39, 151, 248, 1);
+  letter-spacing: 1px;
+  line-height: 15px;
+  padding: 6px 10px;
+  background: transparent;
+  border: 1px solid rgb(39, 151, 248);
+  border-radius: 40px;
+  transition: all 0.3s ease 0s;
+  &:hover { 
+    color: rgba(255, 255, 255, 1);
+    background: rgba(39, 151, 248, 0.8);
+    border: 1px solid rgba(39, 151, 248, 1);
+  }
+}
+
+.text-bold {
+  font-weight: 700;
 }
 
 // .sb-followinfo h6 {
@@ -372,6 +421,36 @@ body {
   color: #e9ecef;
   background: linear-gradient(90deg, rgba(59, 125, 221, .1), rgba(59, 125, 221, .0875) 50%, transparent);
   border-left-color: #3b7ddd;
+}
+
+.usrform-label {
+  font-weight: 500;
+  letter-spacing: 1.4px;
+}
+
+.usrform-input {
+  height: 40px;
+}
+
+.user-imgup{
+  opacity: 0.4;
+  font-size: 12px;
+  letter-spacing: 1.3px;
+  padding: 2px;
+}
+
+.image-upload {
+  cursor: pointer;
+}
+
+.signupbtn-section,
+.loginbtn-section {
+  border-top: 1px solid #dfdfdf;
+}
+
+.modal-title,
+.modal-note {
+  letter-spacing: 0.8px;
 }
 
 @media (min-width:992px) {
