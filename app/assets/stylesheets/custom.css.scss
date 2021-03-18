@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@600;700;800&display=swap');
+
 body {
   margin: 0!important;
   padding: 0!important;
@@ -384,7 +386,8 @@ body {
   border: 2px solid rgb(39, 151, 248);
   border-radius: 40px;
   transition: all 0.3s ease 0s;
-  &:hover { 
+  &:hover {
+    text-decoration: none; 
     color: rgba(255, 255, 255, 1);
     background: rgba(39, 151, 248, 0.8);
     border: 2px solid rgba(39, 151, 248, 1);
@@ -403,6 +406,7 @@ body {
   border-radius: 40px;
   transition: all 0.3s ease 0s;
   &:hover { 
+    text-decoration:none;
     color: rgba(255, 255, 255, 1);
     background: rgba(39, 151, 248, 0.8);
     border: 1px solid rgba(39, 151, 248, 1);
@@ -451,6 +455,123 @@ body {
 .modal-title,
 .modal-note {
   letter-spacing: 0.8px;
+}
+
+.mainpage-content {
+  display: flex;
+  height: calc(100vh - 30px);
+}
+
+.mainpage-wrapper {
+  min-height: 100vh;
+
+}
+
+.mainpage-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  background-color: #0287fd;
+}
+
+.mainpage-right {
+  flex: 1;
+  display: flex;
+}
+
+.mainpage-rcontent {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content:center;
+  background-color: #fff;
+}
+
+.mainpage-footer {
+  height: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.mainfooter-logo {
+  flex: 1;
+}
+
+.mainfooter-menu {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+
+// .mainfooter-content {
+
+// }
+
+.twidder {
+  font-family: 'Baloo Tammudu 2', cursive;
+  color:#fff;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  font-size: 40px;
+}
+
+.twidder-registered {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.mainpage-capturetext {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.mainpage-capturesub {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.mainpage-rgap {
+  min-width: 10%;
+}
+
+.signupmain-btn {
+  font-weight: 700;
+  color: #fff;
+  padding: 10px 120px;
+  border: 2px solid #0287fd;
+  background-color: #0287fd;
+  border-radius: 40px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease 0s;
+  &:hover { 
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(28, 117, 194, 1);
+    border: 2px solid rgba(28, 117, 194, 1);
+  }
+}
+
+.loginmain-btn {
+  font-weight: 700;
+  color: #0287fd;
+  padding: 10px 126px;
+  border: 1px solid #0287fd;
+  background-color: #fff;
+  border-radius: 40px;
+  transition: all 0.3s ease 0s;
+  &:hover { 
+    text-decoration: none;
+    background: rgba(2, 135, 253, 0.2);
+    border: 1px solid rgba(2, 135, 253, 1);
+    color: #0287fd;
+  }
 }
 
 @media (min-width:992px) {
