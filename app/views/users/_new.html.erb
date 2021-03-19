@@ -13,7 +13,6 @@
     </svg>
     <h5 class="modal-note text-capitalize text-bold mt-2">create twidder account</h5>
   </div>
-  
   <%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
     <% if flash[:notice] %>
       <p class="text-center text-success"><%= notice %></p>
@@ -56,14 +55,11 @@
       </div>
     </div>
   <% end %>
-  
 </div>
 <div class="modal-footer">
   <div class="mfooter-conent d-flex align-items-center justify-content-end">
-    
     <div class="">
       <h6 class="my-0"><span class="abbrv">Twid</span> - tell what I'm doing!</h6>
     </div>
   </div>
-  
 </div>
