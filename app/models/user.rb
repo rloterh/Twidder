@@ -5,7 +5,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'commentor_id', class_name: 'Comment'
   has_many :likes, dependent: :destroy
 
-  before_save { self.username = self.username.downcase }
+  before_save { self.username = username.downcase }
   validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 50 }
   validates :fullname, presence: true, length: { minimum: 3, maximum: 80 }
 

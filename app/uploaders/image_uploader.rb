@@ -25,7 +25,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :author_photo do
-    cloudinary_transformation :effect => "brightness:30", :width => 64, :height => 64, :crop => :thumb, :gravity => :face
+    cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb, gravity: :face
   end
 
   version :commentor_photo do
@@ -33,12 +33,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :user_photo do
-    cloudinary_transformation :effect => "brightness:30",
-      :width => 75, :height => 75, :crop => :thumb
+    cloudinary_transformation effect: 'brightness:30',
+                              width: 75, height: 75, crop: :thumb
   end
 
   version :follow do
-    cloudinary_transformation :effect => "brightness:30", :width => 64, :height => 64, :crop => :thumb
+    cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb
   end
 
   # Choose what kind of storage to use for this uploader:

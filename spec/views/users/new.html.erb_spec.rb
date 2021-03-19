@@ -1,21 +1,20 @@
 require 'rails_helper'
 
-RSpec.describe "users/new", type: :view do
+RSpec.describe 'users/new', type: :view do
   before(:each) do
     assign(:user, User.new(
-      fullname: "MyText",
-      username: "MyText"
-    ))
+                    fullname: 'MyText',
+                    username: 'MyText'
+                  ))
   end
 
-  it "renders new user form" do
+  it 'renders new user form' do
     render
 
-    assert_select "form[action=?][method=?]", users_path, "post" do
+    assert_select 'form[action=?][method=?]', users_path, 'post' do
+      assert_select 'textarea[name=?]', 'user[fullname]'
 
-      assert_select "textarea[name=?]", "user[fullname]"
-
-      assert_select "textarea[name=?]", "user[username]"
+      assert_select 'textarea[name=?]', 'user[username]'
     end
   end
 end

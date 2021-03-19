@@ -14,7 +14,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    like = Like.find_by(id: params[:id], user: current_user, opinion_id: params[:opinion_id]) 
+    like = Like.find_by(id: params[:id], user: current_user, opinion_id: params[:opinion_id])
     respond_to do |format|
       if like
         like.destroy
