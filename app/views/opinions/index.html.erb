@@ -43,8 +43,16 @@
           <div class="opinions-container d-flex flex-column">
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
-                <div class="tofollow-head text-capitalize">
-                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= @opinions.count %> new twids</div>
+                <div class="tofollow-head text-capitalize d-flex justify-content-between align-items-center">
+                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= "#{pluralize(@opinions.count, 'new twid')} "%></div>
+                  <div class="py-3">
+                    <% if flash[:notice] %>
+                      <h6 class="notice text-center text-success"><%= notice %></h6>
+                    <% end %>
+                    <% if flash[:alert] %>
+                      <h6 class="alert text-center text-danger"><%= alert %></h6>
+                    <% end %>
+                  </div>  
                 </div>
                 <% @opinions.each do |opinion| %>
                 <div class="d-flex align-items-start py-4">
@@ -70,7 +78,7 @@
                         <!-- <span><span class="mid-bold"><%#= opinion.comments.count %></span> replies</span> -->
                       </div>
                       <div class="d-flex">
-                        <span class="pr-4"><%= like_or_dislike_toggle(opinion) %></span>
+                        <span id="like-dislike" class="pr-4"><%= like_or_dislike_toggle(opinion) %></span>
                         <div class="">
                           <%= link_to new_reply_path(opinion_id: opinion.id),  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'text-capitalize'} do %>
                           <i class="align-middle message-square pr-1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="fs-18 feather feather-message-square align-middle"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></i><span class="text-capitalize">reply</span>

@@ -1,0 +1,15 @@
+<%= simple_form_for (:session), url: login_path, html: {class: 'login-form'} do |f| %>
+<% if flash[:notice] %>
+  <p class="text-center text-success"><%= notice %></p>
+<% end %>
+<% if flash[:alert] %>
+  <p class="alert text-center text-danger"><%= alert %></p>
+<% end %>
+<div>
+  <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input', id: 'twidder-login'} %>
+</div>
+<div>
+  <%= f.button :submit, 'Log in', class: 'loginsubmit-btn' %>
+  <%= link_to "sign up", signup_path %>
+</div>
+<% end %>

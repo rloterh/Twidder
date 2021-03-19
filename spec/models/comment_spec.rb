@@ -2,20 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   context 'Comments Validations, Maximum size, length and presence' do
-    let(:user) { User.create(fullname: 'userx userx', username: 'userx', photo: '', cover_img: '') }
-    let(:opinion) { Opinion.create(commentor_id: author.id, text: 'Opinion from userx') }
+    let(:user) { User.create(fullname: 'userx usery', username: 'userxy', photo: '', cover_img: '') }
+    let(:opinion) { Opinion.create(author_id: user.id, text: 'twid from userxy') }
 
-    subject { opinion.comments.build(commentor_id: author.id, content: 'New post by userx') }
+    subject { opinion.comments.build(commentor_id: user.id, content: 'New comment by userxy') }
 
-    it 'Maximun size of content is 100' do
+    it 'Maximun size of content is 50' do
       expect(subject).to be_valid
     end
 
     it { expect(subject).to validate_presence_of(:content) }
 
     it {
-      expect(subject).to validate_length_of(:content).is_at_most(100)
-        .with_message(/100 characters maximum allowed./)
+      expect(subject).to validate_length_of(:content).is_at_most(50)
+        .with_message(/50 characters maximum allowed./)
     }
   end
 

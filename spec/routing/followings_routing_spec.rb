@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe FollowingsController, type: :routing do
-  describe "routing" do
+  context "routing" do
     it "routes to #index" do
       expect(get: "/followings").to route_to("followings#index")
     end

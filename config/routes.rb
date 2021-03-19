@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root to: 'opinions#index'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
+  get '/tlogin', to: 'sessions#tnew'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/create_opinion', to: 'opinions#create', as: :new_opinion
