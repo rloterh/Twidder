@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@600;700;800&display=swap');
 
 body {
-  margin: 0!important;
-  padding: 0!important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
 .main-nav {
   height: 64px;
   min-height: 64px;
   max-height: 64px;
-  position:fixed;
+  position: fixed;
   top: 0;
   background-image: linear-gradient(to top, #52a6e6, #49a7e6, #40a8e6, #34a8e6, #26a9e6, #26a9e7, #26aae7, #26aae8, #35aaea, #40abeb, #4babed, #54abee);
-  width:100%
+  width: 100%;
 }
 
 .main {
@@ -22,7 +23,7 @@ body {
 .navbar-align {
   margin-left: auto;
   margin-right: 22%;
-  color: rgba(233, 236, 239, .5);
+  color: rgba(233, 236, 239, 0.5);
 }
 
 .sb-followinfo {
@@ -48,9 +49,9 @@ body {
 .profile-section,
 .stats-section {
   border-bottom: 1px solid #dfdfdf;
-} 
+}
 
-.twidder-menu div{
+.twidder-menu div {
   font-weight: 500;
 }
 
@@ -62,10 +63,11 @@ body {
 .newopinion-section {
   min-width: 100%;
   background-color: #fff;
+
   /* border: 2px solid #dfdfdf; */
   padding: 2%;
   border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px 0px, rgba(0, 0, 0, 0.04) 0px 1px 2px 0px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0 1px 2px 0, rgba(0, 0, 0, 0.04) 0 1px 2px 0;
 }
 
 .opinion-container {
@@ -101,7 +103,7 @@ body {
   letter-spacing: 0.6px;
   color: #595959;
   background-color: rgba(40, 137, 233, 0.062);
-  display:inline;
+  display: inline;
   border-radius: 3px;
   white-space: break-spaces;
   overflow-wrap: break-word;
@@ -115,10 +117,10 @@ body {
 .followed-by-img,
 .tofollow-img,
 .newopinion-img {
-  width:64px;
-  height:64px;
+  width: 64px;
+  height: 64px;
   border: 1px solid #fff;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.10);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .followed-by-img,
@@ -132,14 +134,15 @@ body {
 }
 
 .profile-img {
-  width:96px;
-  height:96px;
+  width: 96px;
+  height: 96px;
 }
 
 .tofollow-img,
 .profile-img {
-   background:#fff;
+  background: #fff;
 }
+
 .newopinion-time,
 .newopinion-author {
   letter-spacing: 0.8px;
@@ -194,7 +197,7 @@ body {
   display: block;
   font-size: 1.5rem;
   color: #6c757d;
-  transition: background .1s ease-in-out, color .1s ease-in-out;
+  transition: background 0.1s ease-in-out, color 0.1s ease-in-out;
   line-height: 1.4;
 }
 
@@ -207,19 +210,19 @@ body {
 }
 
 .tofollow-title {
-  border-bottom: 1px solid #dfdfdf
+  border-bottom: 1px solid #dfdfdf;
 }
 
-.tofollow-title p{
-  text-transform:capitalize;
+.tofollow-title p {
+  text-transform: capitalize;
 }
 
 .footer {
   border-top: 1px solid #dfdfdf;
-
 }
+
 .footer-logo,
-.footer-map >li > a {
+.footer-map > li > a {
   color: #787878;
 }
 
@@ -241,12 +244,12 @@ body {
   height: 24px;
 }
 
-.feather-24{
+.feather-24 {
   width: 24px;
   height: 24px;
 }
 
-.feather-32{
+.feather-32 {
   width: 32px;
   height: 32px;
 }
@@ -339,7 +342,7 @@ body {
 }
 
 .comment-bg {
-  background-color:#e8f0fe;
+  background-color: #e8f0fe;
   border-radius: 25px;
   padding: 8px 13px;
 }
@@ -372,7 +375,7 @@ body {
 .abbrv {
   font-weight: 600;
   text-shadow: none;
-  letter-spacing: 1.5px; 
+  letter-spacing: 1.5px;
 }
 
 .signupsubmit-btn,
@@ -386,8 +389,9 @@ body {
   border: 2px solid rgb(39, 151, 248);
   border-radius: 40px;
   transition: all 0.3s ease 0s;
+
   &:hover {
-    text-decoration: none; 
+    text-decoration: none;
     color: rgba(255, 255, 255, 1);
     background: rgba(39, 151, 248, 0.8);
     border: 2px solid rgba(39, 151, 248, 1);
@@ -405,8 +409,9 @@ body {
   border: 1px solid rgb(39, 151, 248);
   border-radius: 40px;
   transition: all 0.3s ease 0s;
-  &:hover { 
-    text-decoration:none;
+
+  &:hover {
+    text-decoration: none;
     color: rgba(255, 255, 255, 1);
     background: rgba(39, 151, 248, 0.8);
     border: 1px solid rgba(39, 151, 248, 1);
@@ -423,7 +428,7 @@ body {
 
 .sidebar-item a:active {
   color: #e9ecef;
-  background: linear-gradient(90deg, rgba(59, 125, 221, .1), rgba(59, 125, 221, .0875) 50%, transparent);
+  background: linear-gradient(90deg, rgba(59, 125, 221, 0.1), rgba(59, 125, 221, 0.0875) 50%, transparent);
   border-left-color: #3b7ddd;
 }
 
@@ -436,7 +441,7 @@ body {
   height: 40px;
 }
 
-.user-imgup{
+.user-imgup {
   opacity: 0.4;
   font-size: 12px;
   letter-spacing: 1.3px;
@@ -464,7 +469,6 @@ body {
 
 .mainpage-wrapper {
   min-height: 100vh;
-
 }
 
 .mainpage-left {
@@ -472,7 +476,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   background-color: #0287fd;
 }
 
@@ -485,7 +489,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content:center;
+  justify-content: center;
   background-color: #fff;
 }
 
@@ -513,7 +517,7 @@ body {
 
 .twidder {
   font-family: 'Baloo Tammudu 2', cursive;
-  color:#fff;
+  color: #fff;
   font-weight: 800;
   letter-spacing: 0.4px;
   font-size: 40px;
@@ -550,7 +554,8 @@ body {
   border-radius: 40px;
   margin-bottom: 16px;
   transition: all 0.3s ease 0s;
-  &:hover { 
+
+  &:hover {
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
     background: rgba(28, 117, 194, 1);
@@ -566,7 +571,8 @@ body {
   background-color: #fff;
   border-radius: 40px;
   transition: all 0.3s ease 0s;
-  &:hover { 
+
+  &:hover {
     text-decoration: none;
     background: rgba(2, 135, 253, 0.2);
     border: 1px solid rgba(2, 135, 253, 1);
@@ -574,8 +580,8 @@ body {
   }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
   .main {
-     box-shadow: inset .75rem 0 1.5rem 0 rgba(0, 0, 0, .075) 
+    box-shadow: inset 0.75rem 0 1.5rem 0 rgba(0, 0, 0, 0.075);
   }
 }
