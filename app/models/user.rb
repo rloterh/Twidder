@@ -1,14 +1,12 @@
 class User < ApplicationRecord
+  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 50 }
+  validates :fullname, presence: true, length: { minimum: 3, maximum: 80 }
   has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion'
   has_many :followed, foreign_key: 'follower_id', class_name: 'Following'
   has_many :followers, foreign_key: 'followed_id', class_name: 'Following'
   has_many :comments, foreign_key: 'commentor_id', class_name: 'Comment'
   has_many :likes, dependent: :destroy
-
   before_save { self.username = username.downcase }
-  validates :username, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 50 }
-  validates :fullname, presence: true, length: { minimum: 3, maximum: 80 }
-
   mount_uploader :photo, ImageUploader
   mount_uploader :cover_img, ImageUploader
 

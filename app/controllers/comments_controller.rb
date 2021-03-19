@@ -3,7 +3,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.opinion_id = params[:opinion_id]
     @comment.commentor = current_user
-
     if @comment.save
       redirect_to opinions_path, notice: 'Comment was successfully created.'
     else

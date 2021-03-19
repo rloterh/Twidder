@@ -1,7 +1,6 @@
 class LikesController < ApplicationController
   def create
     @like = current_user.likes.new(opinion_id: params[:opinion_id])
-
     respond_to do |format|
       if @like.save
         format.html { redirect_to opinions_path, notice: 'You liked a twid.' }
