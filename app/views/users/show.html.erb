@@ -4,12 +4,12 @@
     <%= render partial: 'shared/top_navigation' %>
     <div class=" mt-5 pt-3">
       <div class="d-flex">
-        <div class="d-flex flex-column col-sm-6 col-lg-9">
-          <div class="cover-img">
+        <div class="d-flex flex-column col-sm-12 col-md-8 col-lg-8 col-xl-9">
+          <div class="coverimg-container">
             <% unless @user[:cover_img].nil? %>
-              <%= cl_image_tag @user.cover_img.cover.url, class: '' %>
+              <%= cl_image_tag @user.cover_img.cover.url, class: 'cover-img' %>
             <% else %>
-              <img src="https://via.placeholder.com/817x240" alt="">
+              <img src="https://via.placeholder.com/2700x300" alt="no cover image chosen!">
             <% end %>
           </div>
           <div class="twidder-menu d-flex text-capitalize">
@@ -34,7 +34,7 @@
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
                 <div class="tofollow-head text-capitalize">
-                  <div class="mr-5 mb-0 py-3 newopinion-title"><%= @opinions.size %> new twids by <%= @user.fullname %></div>
+                  <div class="mb-0 pb-2 pt-1 newopinion-title"><%= @opinions.size %> new twids by <%= @user.fullname %></div>
                 </div>
                 <% @opinions.each do |opinion| %>
                 <div class="d-flex align-items-start py-4">
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <div class="right-aside col-sm-6 col-lg-3">
+        <div class="right-aside col-sm-0 col-md-4 col-lg-4 col-xl-3">
           <div class="profile-section">
             <div class="d-flex align-items-center sbr-profile">
               <% unless current_user.id == @user.id %>
@@ -139,7 +139,7 @@
           </div>
           <div class="followedby-section pb-3">
             <div class="followedby-head d-flex justify-content-between text-capitalize mb-3">
-              <div class="sbr-title mr-5 mb-0 h4 py-3">followed by</div>
+              <div class="sbr-title mb-0 h4 py-3">followed by</div>
               <div class=" h4 py-3">
                 <a class="" href="#">
                   <i class="title-icon refresh-cw">
