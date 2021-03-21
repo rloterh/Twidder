@@ -1,16 +1,16 @@
 <% collection.each do |comment| %>
   <div class="reply-bg d-flex align-items-center my-2 ">
     <%= link_to user_path(comment.commentor), class:'img-link' do %>
-    <picture class="commentor-img pr-2">
-      <% if comment.commentor[:photo].nil? %>
-        <%= gravatar_for comment.commentor, size: 56 %>
-      <% else %>
-        <%= cl_image_tag comment.commentor.photo.commentor_photo.url %>
-      <% end %>
-    </picture>
-    |<% end %>
+      <picture class="commentor-img pr-2">
+        <% if comment.commentor[:photo].nil? %>
+          <%= gravatar_for comment.commentor, size: 56 %>
+        <% else %>
+          <%= cl_image_tag comment.commentor.photo.commentor_photo.url %>
+        <% end %>
+      </picture>
+    <% end %>
     <div class=" comment-bg d-flex flex-column ">
-      <h6 class="commentor-details mb-1"><span class="text-capitalize">reply</span> by <span class="txt-bold text-capitalize"><%= comment.commentor.username %></span><span>, on <%= comment.created_at.strftime("%Y/%m/%d") %></span></h6>
+      <h6 class="commentor-details mb-1"><span class="text-capitalize">reply</span> by <span class="txt-bold text-capitalize"><%= link_to "#{comment.commentor.username}", user_path(comment.commentor), class:'commentor-name' %></span><span>, on <%= comment.created_at.strftime("%Y/%m/%d") %></span></h6>
       <h6 class="reply-content mb-0"><%= comment.content %></h6>
     </div>
   </div>

@@ -59,14 +59,14 @@
             <% @users.each do |user| %>
             <%= link_to user_path(user) do %>
             <div class="d-flex align-items-center">
-              <picture class="tofollow-img mr-3 ml-0">
+              <picture class="tofollow-img img-link mr-3 ml-0">
                 <% unless user[:photo].nil? %>
                   <%= cl_image_tag user.photo.follow.url %>
                 <% else %>
                   <%= gravatar_for user, size: 64 %>
                 <% end %>
               </picture>
-              <div class="flex-fill d-flex flex-column ">
+              <div class="flex-fill d-flex flex-column">
                 <h6 class="tofollow-fullname pt-3"><%= user.fullname %></h6>
                 <h6 class="tofollow-username pb-3">@<%= user.username %></h6>
               </div>  

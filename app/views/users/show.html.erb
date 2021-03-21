@@ -33,8 +33,16 @@
           <div class="opinions-container d-flex flex-column">
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
-                <div class="tofollow-head text-capitalize">
-                  <div class="mb-0 pb-2 pt-1 newopinion-title"><%= @opinions.size %> new twids by <%= @user.fullname %></div>
+                <div class="tofollow-head d-flex justify-content-between align-items-center">
+                  <div class="mb-0 pb-2 pt-1 newopinion-title"><%= "#{pluralize(@opinions.size, 'New twid')} "%> by <span class="text-capitalize"><%= @user.fullname %></span></div>
+                  <div class="pb-2 pt-1">
+                    <% if flash[:notice] %>
+                      <h6 class="notice-alert notice alert text-success my-0"><%= notice %>!</h6>
+                    <% end %>
+                    <% if flash[:alert] %>
+                      <h6 class="notice-alert alert text-danger my-0"><%= alert %>!</h6>
+                    <% end %>
+                  </div> 
                 </div>
                 <%= render partial: 'shared/opinions' %>
               </div>
@@ -109,15 +117,17 @@
             </div>
             <% @followers.each do |follower| %>
             <div class="d-flex align-items-center">
-              <picture class="followed-by-img mr-3 ml-0">
-                <% unless follower.Follower[:photo].nil? %>
-                  <%= cl_image_tag follower.Follower.photo.follow.url %>
-                <% else %>
-                  <%= gravatar_for follower.Follower, size: 64 %>
-                <% end %>
-              </picture>
+              <%= link_to user_path(follower.Follower), class:'img-link' do %>
+                <picture class="followed-by-img mr-3 ml-0">
+                  <% unless follower.Follower[:photo].nil? %>
+                    <%= cl_image_tag follower.Follower.photo.follow.url %>
+                  <% else %>
+                    <%= gravatar_for follower.Follower, size: 64 %>
+                  <% end %>
+                </picture>
+              <% end %>
               <div class="flex-fill d-flex flex-column ">
-                <h6 class="followedby-fullname pt-3"><%= follower.Follower.fullname %></h6>
+                <h6 class="followedby-fullname pt-3"><%= link_to "#{follower.Follower.fullname}", user_path(follower.Follower), class:'follower-name' %></h6>
                 <h6 class="followedby-username pb-3">@<%= follower.Follower.username %></h6>
               </div>
               <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
