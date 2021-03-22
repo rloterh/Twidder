@@ -15,6 +15,28 @@ body {
   width: 100%;
 }
 
+.logouttooltip-text {
+  visibility: hidden;
+  background: #3b7ddd;
+  box-shadow: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
+  border-radius: 25%;
+  display: block;
+  height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 0;
+  right: -8px;
+  text-align: center;
+  transition: top .1s ease-out, visibility .1s ease-out;
+  font-size: .675rem;
+  color: #fff;
+}
+
+.logout-link:hover .logouttooltip-text{
+  visibility: visible;
+  top: -4px;
+}
+
 .main {
   display: block;
   background-color: #f5f6f8;
@@ -512,7 +534,6 @@ body {
   animation: seconds 1.0s forwards;
   animation-iteration-count: 1;
   animation-delay: 3s;
- 
 }
 
 @keyframes seconds {

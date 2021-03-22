@@ -15,7 +15,7 @@
 </h3>
 <ul>
   <% @user.errors.full_messages.each do |message| %>
-  <li><%= message %></li>
+  <li class="notice-alert"><%= message %></li>
   <% end %>
 </ul>
 <% end %>
