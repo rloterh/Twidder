@@ -24,8 +24,8 @@
       </div>
     </div>
     <ul class="sidebar-nav text-capitalize">
-      <li class="sidebar-item active">
-        <%= link_to root_path, class:'sidebar-link' do %>
+      <li class="sidebar-item">
+        <%= link_to root_path, class: "sblnav-menu #{current? 'activenav-link', root_path}" do %>
           <i class="align-middle home"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home align-middle"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></i> 
           <span class="align-middle d-inline">home</span>
         <% end %>
@@ -44,11 +44,10 @@
         </a>
       </li>
       <li class="sidebar-item">
-        <div class="">
           <%= link_to user_path(current_user.id), class: "sblnav-menu #{current? 'activenav-link', user_path(current_user.id)}" do %>
-            <i class="align-middle user"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i><span class="align-middle">profile</span>
+            <i class="align-middle user"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></i>
+            <span class="align-middle">profile</span>
           <% end %>
-        </div>
       </li>
       <li class="sidebar-item">
         <a class="sidebar-link">

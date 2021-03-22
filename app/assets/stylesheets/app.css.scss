@@ -14556,7 +14556,9 @@ a.sidebar-link svg {
   border-left-color: transparent
 }
 
-.sidebar-link:hover,
+.sblnav-menu:hover,
+.sblnav-menu:hover i,
+.sidebar-link:hover ,
 .sidebar-link:hover i,
 .sidebar-link:hover svg {
   color: rgba(233, 236, 239, .75)

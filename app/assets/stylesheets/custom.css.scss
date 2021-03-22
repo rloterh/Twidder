@@ -461,13 +461,15 @@ body {
 .sblnav-menu {
   display: block;
   text-decoration: none;
+  color: rgba(233, 236, 239, .5);
   padding: .625rem 1.625rem;
   transition: background .1s ease-in-out;
   border-left: 3px solid transparent;
   &:hover {
+    text-decoration: none;
     background: #222e3c;
     border-left-color: transparent
-  }
+     }
 }
 
 .activenav-link {
