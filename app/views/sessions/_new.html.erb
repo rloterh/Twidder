@@ -24,16 +24,16 @@
       <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input', id: 'twidder-login'} %>
     </div>
     <div class="loginbtn-section d-flex flex-column align-items-center justify-content-center mt-4 pt-2">
-      <div class="my-2">
+      <div class="my-1">
         <%= f.button :submit, 'Log in', class: 'loginsubmit-btn' %>
       </div>
-      <div class="my-2">
+      <div class="mb-1">
         <%= link_to "sign up", signup_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'my-0 optsignup-btn'} %>
         <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content"></div>
           </div>
-       </div>
+        </div>
       </div>
     </div>
   <% end %>

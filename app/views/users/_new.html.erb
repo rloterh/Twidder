@@ -29,7 +29,7 @@
       <%= f.input :fullname, label: 'Full name', placeholder: 'Full name', label_html: {class: 'usrform-label'}, input_html: {class: 'usrform-input'} %>
     </div>
     <div class="my-3">
-      <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input'} %>
+      <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input'}  %>
     </div>
     <div class="d-flex align-items-between pt-2">
       <label class="flex-fill">
@@ -42,16 +42,16 @@
       </label>
     </div>
     <div class="signupbtn-section d-flex flex-column align-items-center justify-content-center mt-4 pt-2">
-      <div class="my-2">
-        <%= f.button :submit, 'Sign up', class: 'signupsubmit-btn btn' %>
+      <div class="my-1">
+        <%= f.button :submit, 'Sign up', class: 'signupsubmit-btn' %>
       </div>
-      <div class="my-2">
+      <div class="mb-1">
         <%= link_to "Log in", login_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'my-0 optlogin-btn'} %>
         <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content"></div>
           </div>
-       </div>
+        </div>
       </div>
     </div>
   <% end %>

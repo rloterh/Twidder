@@ -18,6 +18,14 @@
         <div class="mainpage-rgap"></div>
         <div class="mainpage-rcontent">
         <div class="d-flex flex-column pb-3">
+          <div class="mb-3">
+            <% if flash[:notice] %>
+              <h6 class="notice-alert notice alert text-success my-0"><%= notice %>!</h6>
+            <% end %>
+            <% if flash[:alert] %>
+              <h6 class="notice-alert alert text-danger my-0"><%= alert %>!</h6>
+            <% end %>
+          </div>
           <svg viewBox="0 0 24 24" width="80" fill="#0287fd">
             <g>
               <path

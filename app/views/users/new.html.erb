@@ -19,7 +19,7 @@
   <% end %>
 </ul>
 <% end %>
-  <%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
+<%= simple_form_for @user, url: users_path, html: {multipart: 'true', class: 'signup-form'} do |f| %>
   <%= f.input :fullname, label: 'Full name', placeholder: 'Full name' %> <%= f.input :username, label: 'UserName', placeholder: 'Choose a userName' %>
   <%= f.file_field :photo, label: 'Profile z' %>
   <%= f.file_field :cover_img, label: 'Cover photo' %>
