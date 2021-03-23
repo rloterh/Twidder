@@ -1,45 +1,44 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
   include Cloudinary::CarrierWave
 
   version :standard do
-    process resize_to_fill: [700, 400, :north]
-  end
-
-  version :cover do
     process resize_to_fill: [818, 240, :north]
   end
 
+  # version :cover do
+  #   process resize_to_fill: [818, 240, :north]
+  # end
+
   version :medium do
-    process resize_to_fit: [100, 100]
+    process resize_to_fit: [96, 96]
   end
 
-  version :profile do
-    process resize_to_fill: [96, 96]
-  end
+  # version :profile do
+  #   process resize_to_fill: [96, 96]
+  # end
 
   version :thumb do
     process resize_to_fill: [75, 75]
   end
 
-  version :author_photo do
-    cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb, gravity: :face
-  end
+  # version :author_photo do
+  #   cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb, gravity: :face
+  # end
 
-  version :commentor_photo do
-    process resize_to_fill: [56, 56]
-  end
+  # version :commentor_photo do
+  #   process resize_to_fill: [56, 56]
+  # end
 
-  version :user_photo do
-    cloudinary_transformation effect: 'brightness:30',
-                              width: 75, height: 75, crop: :thumb
-  end
+  # version :user_photo do
+  #   cloudinary_transformation effect: 'brightness:30',
+  #                             width: 75, height: 75, crop: :thumb
+  # end
 
-  version :follow do
-    cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb
-  end
+  # version :follow do
+  #   cloudinary_transformation effect: 'brightness:30', width: 64, height: 64, crop: :thumb
+  # end
 
   # Choose what kind of storage to use for this uploader:
   # storage :file

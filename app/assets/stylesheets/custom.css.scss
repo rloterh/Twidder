@@ -136,8 +136,8 @@ body {
 
 .opinion-form::placeholder,
 .comment-form::placeholder {
-  opacity: 0.8;
   letter-spacing: 1.2px;
+  color: #acacac;
 }
 
 .twid-msg {
@@ -210,9 +210,12 @@ body {
   font-weight: 600;
 }
 
-.newopinion-img {
+.tofollow-img,
+.tofollow-img img,
+.newopinion-img,
+.newopinion-img img {
+  max-width: 64px;
   max-height: 64px;
-  min-height: 64px;
 }
 
 .img-link {
@@ -227,10 +230,12 @@ body {
   }
 }
 
-.commentor-img {
+.commentor-img,
+.commentor-img img {
+  max-width: 56px;
   max-height: 56px;
-  min-height: 56px;
 }
+
 
 .newopinion-img img {
   border-radius: 3px;
