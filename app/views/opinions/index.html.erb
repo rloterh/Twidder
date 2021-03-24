@@ -61,7 +61,7 @@
                 <div class="d-flex align-items-center">
                   <picture class="tofollow-img img-link mr-3 ml-0">
                     <% unless user[:photo].nil? %>
-                      <%= cl_image_tag user.photo.thumb.url %>
+                      <%= image_tag user.photo.thumb.url %>
                     <% else %>
                       <%= gravatar_for user, size: 64 %>
                     <% end %>

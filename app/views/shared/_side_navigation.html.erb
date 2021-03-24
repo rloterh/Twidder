@@ -6,7 +6,7 @@
           <% if current_user[:photo].nil? %>
             <%= gravatar_for current_user, size: 75 %>
           <% else %>
-            <%= cl_image_tag current_user.photo.thumb.url %>
+            <%= image_tag current_user.photo.thumb.url %>
           <% end %>
         <% end %> 
       </picture>
