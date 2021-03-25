@@ -175,8 +175,8 @@ body {
 }
 
 .profile-img {
-  width: 96px;
-  height: 96px;
+  max-width: 96px;
+  max-height: 96px;
 }
 
 .tofollow-img,
@@ -371,6 +371,10 @@ body {
 .menu-inactive,
 .sbr-title {
   color: #777;
+
+  &:hover {
+    color: #888;
+  }
 }
 
 .sbl-userimg {
