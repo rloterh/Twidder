@@ -175,8 +175,8 @@ body {
 }
 
 .profile-img {
-  max-width: 96px;
-  max-height: 96px;
+  width: 96px;
+  height: 96px;
 }
 
 .tofollow-img,
@@ -214,8 +214,8 @@ body {
 .tofollow-img img,
 .newopinion-img,
 .newopinion-img img {
-  max-width: 64px;
-  max-height: 64px;
+  width: 64px;
+  height: 64px;
 }
 
 .img-link {
@@ -232,14 +232,14 @@ body {
 
 .commentor-img,
 .commentor-img img {
-  max-width: 56px;
-  max-height: 56px;
+  width: 56px;
+  height: 56px;
 }
 
 .newopinion-img img {
   border-radius: 3px;
   width: 100%;
-  min-width: 64px;
+  width: 64px;
   display: block;
 }
 
