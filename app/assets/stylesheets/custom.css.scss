@@ -202,7 +202,10 @@ body {
 
 .commentor-name:link,
 .follower-name:link,
-.author-name:link {
+.author-name:link,
+.commentor-name:visited,
+.follower-name:visited,
+.author-name:visited {
   text-decoration: none;
   color: inherit;
 
