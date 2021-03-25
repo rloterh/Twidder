@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'carrierwave', '~> 2.1.0'
-gem 'cloudinary', '~> 1.18.1'   
+gem 'cloudinary', '~> 1.18.1'
 gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
