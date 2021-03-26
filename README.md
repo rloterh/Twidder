@@ -7,7 +7,7 @@ Twidder is a redesign of Twitter social media app. Users can share their ongoing
 
 
 ## Live Demo Link
-[Twidder Live demo](https://quiet-waters-99580.herokuapp.com/).
+[Twidder Live demo](http://quiet-waters-99580.herokuapp.com/).
 
 For quick test login to the demo app, use one of the following credential:
 *Usernames:* 
