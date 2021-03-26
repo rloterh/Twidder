@@ -5,7 +5,7 @@
         <% if comment.commentor[:photo].nil? %>
           <%= gravatar_for comment.commentor, size: 56 %>
         <% else %>
-          <%= image_tag comment.commentor.photo.thumb.url %>
+          <%= cl_image_tag comment.commentor.photo.commentor_photo.url %>
         <% end %>
       </picture>
     <% end %>

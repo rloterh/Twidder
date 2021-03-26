@@ -7,7 +7,7 @@
         <div class="d-flex flex-column col-sm-12 col-md-8 col-lg-8 col-xl-9">
           <div class="coverimg-container">
             <% unless @user[:cover_img].nil? %>
-              <%= image_tag @user.cover_img.standard.url, class: 'cover-img' %>
+              <%= cl_image_tag @user.cover_img.cover.url, class: 'cover-img' %>
             <% else %>
               <img src="https://via.placeholder.com/2700x300" alt="no cover image chosen!">
             <% end %>
@@ -72,7 +72,7 @@
               <div class="flex-fill d-flex flex-column align-items-center justify-content-center my-3">
                 <picture class="profile-img">
                   <% unless @user[:photo].nil? %>
-                    <%= image_tag @user.photo.medium.url %>
+                    <%= cl_image_tag @user.photo.profile.url %>
                   <% else %>
                     <%= gravatar_for @user, size: 96 %>
                   <% end %>
@@ -122,7 +122,7 @@
               <%= link_to user_path(follower.Follower), class:'img-link' do %>
                 <picture class="followed-by-img mr-3 ml-0">
                   <% unless follower.Follower[:photo].nil? %>
-                    <%= image_tag follower.Follower.photo.thumb.url %>
+                    <%= cl_image_tag follower.Follower.photo.follow.url %>
                   <% else %>
                     <%= gravatar_for follower.Follower, size: 64 %>
                   <% end %>

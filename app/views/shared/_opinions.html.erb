@@ -5,7 +5,7 @@
         <% if opinion.author[:photo].nil? %>
           <%= gravatar_for opinion.author, size: 64 %>
         <% else %>
-          <%= image_tag opinion.author.photo.thumb.url %>
+          <%= cl_image_tag opinion.author.photo.author_photo.url %>
         <% end %>
       </picture>
     <% end %>
