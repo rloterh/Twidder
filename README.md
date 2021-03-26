@@ -1,6 +1,6 @@
-![](https://img.shields.io/badge/microverse-007bff)
-
 # Twidder - RoR Social Media App (Microverse Ruby on Rail Capstone Project)
+
+![](https://img.shields.io/badge/microverse-007bff)
 
 ## Introduction
 Twidder is a redesign of Twitter social media app. Users can share their ongoing fun activity by making 'twids' on this platform. To 'twid' is an abbreviation for 'tell what I'm doing', coined from the word 'tweet'(from twitter). Users can compose a twid of current fun activity, and other users on the platform can reply/ comment on that twid, like or unlike that twid. A user can follow other users and the vice versa. A user's her profile displays all Following activities of the user and all twids composed by the user. A user equally can view the profile of other users and observe sample followers of other users, however the current user is not displayed in the recommended list. Follow this link for a video demonstration of Twidder: [video demo](https://www.loom.com/share/95c5f0f349f4455683d62c0436218323/).
