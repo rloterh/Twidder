@@ -729,6 +729,24 @@ a.currentuser-name {
   }
 }
 
+.sidebar {
+  min-width: 260px;
+  max-width: 260px;
+  direction: ltr;
+}
+
+.sb-content {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 260px;
+  transition: margin-left 0.35s ease-in-out, left 0.35s ease-in-out, margin-right 0.35s ease-in-out, right 0.35s ease-in-out;
+  background: #222e3c;
+}
+
 @media screen and (max-width: 991px) {
   .navbar-align {
     margin-right: 3% !important;
