@@ -93,7 +93,7 @@
               </div>
             </div>
             <div class="profile-name d-flex flex-column justify-content-between">
-              <h6 class="profile-fullname text-center "><%= @user.fullname %></h6>
+              <h6 class="profile-fullname text-center text-capitalize"><%= @user.fullname %></h6>
               <h6 class="profile-username text-center">@<%= @user.username %></h6>
             </div>
           </div>
@@ -138,7 +138,7 @@
               <% end %>
               <div class="flex-fill d-flex flex-column ">
                 <h6 class="followedby-fullname pt-3"><%= link_to "#{follower.Follower.fullname}", user_path(follower.Follower), class:'follower-name' %></h6>
-                <h6 class="followedby-username pb-3">@<%= follower.Follower.username %></h6>
+                <h6 class="followedby-username text-capitalize pb-3">@<%= follower.Follower.username %></h6>
               </div>
               <div class="flex-fill d-flex flex-column align-items-end justify-content-center">
                 <div class="py-1">
