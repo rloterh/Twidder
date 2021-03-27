@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title replymodal-title" id="myModalLabel"><span class="">Respond to twid, by</span><span class="text-capitalize"> <%= @opinion.author.fullname %></span></h4>
+  <button type="button" class="close" data-dismiss="modal">x</button>
+</div>
+<div class="modal-body">
+  <%= render partial: 'shared/comment_form', locals: { comment: @opinion.comments.new, opinion: @opinion } %>
+</div>
+<div class="modal-footer">
+  <div class="mfooter-conent d-flex align-items-center justify-content-end">
+    <div class="">
+      <h6 class="my-0"><span class="abbrv">Twid</span> - tell what I'm doing!</h6>
+    </div>
+  </div>
+</div>

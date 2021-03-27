@@ -11,14 +11,6 @@ class OpinionsController < ApplicationController
     @users = User.all_users(current_user.id).order('created_at DESC')
   end
 
-  def reply
-    @opinion = Opinion.find(params[:opinion_id])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   def create
     @opinion = Opinion.new(opinion_params)
     @opinion.author_id = current_user.id

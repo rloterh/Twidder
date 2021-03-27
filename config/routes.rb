@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   post '/create_opinion', to: 'opinions#create', as: :new_opinion
   get '/follow/:followed_id', to: 'followings#create', as: :follow
   delete '/:followed_id', to: 'followings#destroy', as: :unfollow
-  get '/reply', to: 'opinions#reply', as: :new_reply
+  get '/reply', to: 'comments#new', as: :new_reply
  end
