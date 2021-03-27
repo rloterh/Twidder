@@ -4,7 +4,7 @@
     <%= render partial: 'shared/top_navigation' %>
     <div class=" mt-5 pt-3">
       <div class="d-flex">
-        <div class="d-flex flex-column col-sm-12 col-md-8 col-lg-8 col-xl-9">
+        <div class="midcontent-left d-flex flex-column col-sm-12 col-md-8 col-xl-9">
           <div class="coverimg-container">
             <% unless @user[:cover_img].nil? %>
               <%= cl_image_tag @user.cover_img.cover.url, class: 'cover-img' %>
@@ -51,7 +51,7 @@
             </div>
           </div>
         </div>
-        <div class="right-aside col-sm-0 col-md-4 col-lg-4 col-xl-3">
+        <div class="right-aside col-sm-0 col-md-4 col-xl-3">
           <div class="profile-section">
             <div class="d-flex align-items-center sbr-profile">
               <% unless current_user.id == @user.id %>
