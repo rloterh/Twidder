@@ -2,11 +2,7 @@
   <div class="d-flex align-items-start py-4">
     <%= link_to user_path(opinion.author), class:'img-link' do %>
       <picture class="newopinion-img m-4 mr-3 ml-0 mt-0 rounded d-block">
-        <% if opinion.author[:photo].nil? %>
-          <%= gravatar_for opinion.author, size: 64 %>
-        <% else %>
-          <%= cl_image_tag opinion.author.photo.author_photo.url %>
-        <% end %>
+        <%= author_image(opinion) %>
       </picture>
     <% end %>
     <div class="flex-fill d-flex flex-column">
@@ -17,8 +13,8 @@
       <p class="twid-msg py-2 pl-3 d-inline"><%= opinion.text %></p>
       <div class="d-flex justify-content-between">
         <div class="d-flex opinion-stats">
-          <p class="opinion-stat1 text-capitalize pr-3"><% if opinion.likes.any? %><%= "#{pluralize(opinion.likes.size, 'like')}" %><% end %></span>
-          <p class="opinion-stat2 text-capitalize"><% if opinion.comments.any? %><%= "#{pluralize(opinion.comments.count, 'reply')}" %><% end %></span>
+          <p class="opinion-stat1 text-capitalize pr-3"><%= like_stat(opinion) %></span>
+          <p class="opinion-stat2 text-capitalize"><%= reply_stat(opinion) %></span>
         </div>
         <div class="d-flex">
           <span id="like-dislike" class="pr-4"><%= like_or_dislike_toggle(opinion) %></span>

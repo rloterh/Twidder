@@ -27,7 +27,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/config/cloudinary.yml
 /public/packs
 /public/packs-test
 /node_modules
@@ -37,4 +36,5 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+/config/cloudinary.yml
 

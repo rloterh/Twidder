@@ -3,12 +3,9 @@
     <div class="sidebar-userinfo d-flex align-items-center ">
       <picture class="sbl-userimg m-4 mr-3">
         <%= link_to user_path(current_user), class:'img-link' do %>
-          <% if current_user[:photo].nil? %>
-            <%= gravatar_for current_user, size: 75 %>
-          <% else %>
-            <%= cl_image_tag current_user.photo.user_photo.url %>
-          <% end %>
+          <%= current_user_image(current_user) %>
         <% end %> 
+        
       </picture>
       <h5 class="text-capitalize"><%= link_to "#{current_user.fullname}", user_path(current_user), class:'currentuser-name' %></h5>  
     </div>

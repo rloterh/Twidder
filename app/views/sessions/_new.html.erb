@@ -14,12 +14,8 @@
     <h5 class="modal-note text-capitalize text-bold mt-2">Login with your username</h5>
   </div>
   <%= simple_form_for (:session), url: login_path, html: {class: 'login-form'} do |f| %>
-    <% if flash[:notice] %>
-      <p class="notice-alert text-center text-success"><%= notice %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p class="notice-alert alert text-center text-danger"><%= alert %></p>
-    <% end %>
+    <%= flash_notice %>
+    <%= flash_alert %>
     <div class="my-3">
       <%= f.input :username, label: 'Username', placeholder: 'userName', label_html: {class: "usrform-label"}, input_html: {class: 'usrform-input', id: 'twidder-login'} %>
     </div>

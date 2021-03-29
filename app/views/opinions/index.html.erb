@@ -14,11 +14,7 @@
             <div class="d-flex flex-column align-items-center">
               <div class="opinion-section">
                 <p class="createopinion-title mb-2 text-capitalize">twid something</p>
-                <% if @opinion.errors.full_messages.any? %>
-                  <% @opinion.errors.full_messages.each do |message| %>
-                  <p class="text-danger"><%= message %></p>
-                  <% end %>
-                <% end %>
+                <%= error_msg(@opinion) %>
                 <div class="create-opinion">
                   <%= render partial: 'shared/form', locals: { opinion: @opinion } %>
                 </div>
@@ -29,14 +25,10 @@
             <div class="d-flex flex-column align-items-center">
               <div class="newopinion-section">
                 <div class="tofollow-head  d-flex justify-content-between align-items-center">
-                  <div class="mb-0 pb-2 pt-1 text-capitalize newopinion-title"><%= "#{pluralize(@opinions.count, 'new twid')} "%></div>
+                  <div class="mb-0 pb-2 pt-1 text-capitalize newopinion-title"><%= "#{pluralize(@opinions.count, 'new twid')}" %></div>
                   <div class="pb-2 pt-1">
-                    <% if flash[:notice] %>
-                      <h6 class="notice-alert notice alert text-success my-0"><%= notice %>!</h6>
-                    <% end %>
-                    <% if flash[:alert] %>
-                      <h6 class="notice-alert alert text-danger my-0"><%= alert %>!</h6>
-                    <% end %>
+                    <%= flash_notice %>
+                    <%= flash_alert %>
                   </div>
                 </div>
                 <%= render partial: 'shared/opinions' %>
@@ -60,11 +52,7 @@
               <%= link_to user_path(user) do %>
                 <div class="d-flex align-items-center">
                   <picture class="tofollow-img img-link mr-3 ml-0">
-                    <% unless user[:photo].nil? %>
-                      <%= cl_image_tag user.photo.follow.url %>
-                    <% else %>
-                      <%= gravatar_for user, size: 64 %>
-                    <% end %>
+                    <%= user_image(user) %>
                   </picture>
                   <div class="flex-fill d-flex flex-column">
                     <h6 class="tofollow-fullname pt-3  text-capitalize"><%= user.fullname %></h6>

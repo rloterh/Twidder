@@ -16,7 +16,7 @@ class OpinionsController < ApplicationController
     @opinion.author_id = current_user.id
     respond_to do |format|
       if @opinion.save
-        flash[:notice] = 'twid created!'
+        flash[:notice] = 'Twid created'
         format.html { redirect_to opinions_path }
         format.json { render opinions_path, status: :created, location: @opinion }
       else
