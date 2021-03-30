@@ -1,7 +1,7 @@
 module UsersHelper
   def cover_image(user)
     if user[:photo].nil?
-      image_tag('https://via.placeholder.com/2700x300')
+      raw('<img src="https://user-images.githubusercontent.com/12745474/112985530-d2cc9980-914f-11eb-8f02-3e9d443a06f1.png">')
     else
       cl_image_tag(user.cover_img.cover.url, class: 'cover-img')
     end

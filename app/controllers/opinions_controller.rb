@@ -9,6 +9,7 @@ class OpinionsController < ApplicationController
     @opinion = Opinion.new
     @opinions = Opinion.order('created_at DESC').includes(:author).limit(5)
     @users = User.all_users(current_user.id).order('created_at DESC')
+    @tofllow = User.all - current_user.following - [current_user]
   end
 
   def create

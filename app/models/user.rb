@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :opinions, foreign_key: 'author_id', class_name: 'Opinion'
   has_many :followed, foreign_key: 'follower_id', class_name: 'Following'
   has_many :followers, foreign_key: 'followed_id', class_name: 'Following'
+  has_many :following, through: :followed, source: :Followed
   has_many :comments, foreign_key: 'commentor_id', class_name: 'Comment'
   has_many :likes, dependent: :destroy
   before_save { self.username = username.downcase }
