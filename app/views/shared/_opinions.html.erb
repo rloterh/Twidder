@@ -7,7 +7,7 @@
     <% end %>
     <div class="flex-fill d-flex flex-column">
       <div class="d-flex justify-content-between">
-        <h6 class="newopinion-author"><%= link_to "#{opinion.author.fullname}", user_path(opinion.author), class:'author-name' %></h6>
+        <h6 class="newopinion-author text-capitalize"><%= link_to "#{opinion.author.fullname}", user_path(opinion.author), class:'author-name' %></h6>
         <h6 class="pl-3 newopinion-time"><%=opinion.created_at.strftime("%H") %>h</h6>
       </div>
       <p class="twid-msg py-2 pl-3 d-inline"><%= opinion.text %></p>

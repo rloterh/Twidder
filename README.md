@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/microverse-007bff)
 
 ## Introduction
-Twidder is a redesign of Twitter social media app. Users can share their ongoing fun activity by making 'twids' on this platform. To 'twid' is an abbreviation for 'tell what I'm doing', coined from the word 'tweet'(from twitter). Users can compose a twid of current fun activity, and other users on the platform can reply/ comment on that twid, like or unlike that twid. A user can follow other users and the vice versa. A user's her profile displays all Following activities of the user and all twids composed by the user. A user equally can view the profile of other users and observe sample followers of other users, however the current user is not displayed in the recommended list. Follow this link for a video demonstration of Twidder: [video demo](https://www.loom.com/share/95c5f0f349f4455683d62c0436218323/).
+Twidder is a redesign of Twitter social media app. Users can share their ongoing fun activity by making 'twids' on this platform. To 'twid' is an abbreviation for 'tell what I'm doing', coined from the word 'tweet'(from twitter). Users can compose a twid of current fun activity, and other users on the platform can reply/ comment on that twid, like or unlike that twid. A user can follow other users and the vice versa. A user's her profile displays all Following activities of the user and all twids composed by the user. A user equally can view the profile of other users and observe sample followers of other users, however the current user is not displayed in the recommended list. Follow this link for a video demonstration of Twidder: [video demo](https://www.loom.com/share/9d3ee523d0e54ea8a7c9796dd8b701d2/).
 
 
 ## Live Demo Link
@@ -18,7 +18,7 @@ For quick test login to the demo app, use one of the following credential:
 ## App Screenshots
 | |
 |:-------------------------:|
-| <img width="800" alt="Sign up/ Login page" src="https://user-images.githubusercontent.com/12745474/112553355-41120480-8dbc-11eb-93ee-0fbb6afa0b6c.png"> <p align="center">Sign up | Log in page <p>|
+| <img width="800" alt="Sign up/ Login page" src="https://user-images.githubusercontent.com/12745474/113044778-9881ed00-918d-11eb-934b-4c677e2d4941.png"> <p align="center">Sign up | Log in page <p>|
 | <img width="800" alt="Homepage" src="https://user-images.githubusercontent.com/12745474/112554018-7b2fd600-8dbd-11eb-8f0f-b03505da9218.png"> <p align="center">Twid Timeline page </p>|
 | <img width="800" alt="User profile" src="https://user-images.githubusercontent.com/12745474/112909015-17b8e780-90e0-11eb-9cab-c1d94c157c66.png"> <p align="center"> User profile page</p>|
 
