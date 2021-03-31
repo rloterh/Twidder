@@ -1,9 +1,9 @@
-# Twidder - RoR Social Media App (Microverse Ruby on Rail Capstone Project)
+# Twidder - RoR Social Media App (Microverse Ruby on Rails Capstone Project)
 
 ![](https://img.shields.io/badge/microverse-007bff)
 
-## Introduction
-Twidder is a redesign of Twitter social media app. Users can share their ongoing fun activity by making 'twids' on this platform. To 'twid' is an abbreviation for 'tell what I'm doing', coined from the word 'tweet'(from twitter). Users can compose a twid of current fun activity, and other users on the platform can reply/ comment on that twid, like or unlike that twid. A user can follow other users and the vice versa. A user's profile displays all Following activities of the user and all twids composed by the user. A user equally can view the profile of other users and observe sample followers of other users, however the current user is not displayed in the recommended list. Follow this link for a video demonstration of Twidder: [video demondtration](https://www.loom.com/share/9d3ee523d0e54ea8a7c9796dd8b701d2/).
+## Description
+Twidder is a redesign of Twitter social media app. Users can share their ongoing fun activity by making 'twids' on this platform. To 'twid' is an abbreviation for 'tell what I'm doing', coined from the word 'tweet'(from twitter). Users can compose a twid of current fun activity, and other users on the platform can reply/ comment on that twid, like or unlike that twid. A user can follow other users and the vice versa. A user's profile displays all Following activities of the user and all twids composed by the user. A user equally can view the profile of other users and observe sample followers of other users, however the current user is not displayed in the recommended list. Follow this link for a video demonstration of Twidder: [video demonstration](https://www.loom.com/share/9d3ee523d0e54ea8a7c9796dd8b701d2/).
 
 
 ## Live Demo Link
@@ -39,7 +39,7 @@ For quick test login to the app live demo, use one of the following credential:
 - Run the command **_rails s_** to start the Rails server
 - In your browser, navigate to  **_http://localhost:3000_**
 
-## Setup Cloudinary image storage & Getting Started
+## Setup Cloudinary image storage
 
 - Visit [Cloudinary](https://cloudinary.com/) this project
 - Sign up to create a cloudinary account
