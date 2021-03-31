@@ -9,9 +9,8 @@ Twidder is a redesign of Twitter social media app. Users can share their ongoing
 ## Live Demo Link
 [Twidder Live demo](https://quiet-waters-99580.herokuapp.com/).
 
-For quick test login to the app live demo, use one of the following credential:
-*Usernames:* 
- **_vanhzy_**
+For quick test login to the app live demo, use one of the following *Usernames:* <br>
+ **_vanhzy_** <br>
  **_trendy22_**
 
 
@@ -22,7 +21,7 @@ For quick test login to the app live demo, use one of the following credential:
 | <img width="800" alt="Homepage" src="https://user-images.githubusercontent.com/12745474/112554018-7b2fd600-8dbd-11eb-8f0f-b03505da9218.png"> <p align="center">Twid Timeline page </p>|
 | <img width="800" alt="User profile" src="https://user-images.githubusercontent.com/12745474/112909015-17b8e780-90e0-11eb-9cab-c1d94c157c66.png"> <p align="center"> User profile page</p>|
 
-## Twidder Entity Relationship
+## Core Entity Relationship
 | |
 |:-------------------------:|
 | <img width="800" alt="Home Page" src="https://user-images.githubusercontent.com/12745474/112556267-c21fca80-8dc1-11eb-853f-15220c3dc30a.png"> <p align="center">Twidder ERD<p>|
@@ -44,7 +43,7 @@ For quick test login to the app live demo, use one of the following credential:
 - Visit [Cloudinary](https://cloudinary.com/) this project
 - Sign up to create a cloudinary account
 - Copy the generated api credentials:<code>cloud_name,api_key, and api_secret</code> for development, test and production
-- Create a cloudinary.yml file in <code>config</code> directory and paste the api keys
+- Create a <code>cloudinary.yml</code> file in <code>config</code> directory and paste the api keys
 
 
 ## Built Mainly With
